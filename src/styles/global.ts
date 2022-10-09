@@ -20,7 +20,7 @@ body{
 }
 
 body, input, textarea, button {
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   line-height:130%;
 }
 
