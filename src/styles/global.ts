@@ -15,5 +15,13 @@ export const GlobalStyles = createGlobalStyle`
 
 body{
   background-color:${(props) => props.theme.background} ;
+  color:${(props) => props.theme['base-title']};
+  -webkit-font-smoothing:antialiased;
 }
+
+body, input, textarea, button {
+  font-family: 'Roboto';
+  line-height:130%;
+}
+
 `

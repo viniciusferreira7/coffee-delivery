@@ -1,5 +1,5 @@
 import { SuccessContainer } from './styles'
 
-export default function Success() {
+export function Success() {
   return <SuccessContainer>Success</SuccessContainer>
 }
