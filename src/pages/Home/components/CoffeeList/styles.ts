@@ -10,6 +10,8 @@ export const CoffeeListContainer = styled.section`
   & > header {
     h1 {
       font-size: 2rem;
+
+      margin-bottom: 2.125rem;
     }
   }
 `

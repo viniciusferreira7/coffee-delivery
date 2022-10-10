@@ -13,6 +13,7 @@ export function CoffeeCard() {
           alt="Traditional Espresso Coffee"
         />
         <h4>Tradicional</h4>
+        {/* Ajustar o espaçamento do h4 */}
       </header>
       <main>
         <h2>Expresso Tradicional</h2>
@@ -24,7 +25,7 @@ export function CoffeeCard() {
         </p>
         <div>
           <Counter />
-          <button>
+          <button title="Comprar">
             <ShoppingCartSimple size={19} weight="fill" />
           </button>
         </div>
