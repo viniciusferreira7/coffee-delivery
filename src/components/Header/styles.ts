@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
 
+  width: 100%;
   max-width: 90rem;
   height: 6.5rem;
 
@@ -35,9 +36,9 @@ export const HeaderContainer = styled.header`
       background-color: ${(props) => props.theme['purple-light']};
       color: ${(props) => props.theme['purple-dark']};
 
-      transition: all ease-in-out 300ms;
-
       &:hover {
+        transition: all ease-in-out 300ms;
+
         background-color: ${(props) => props.theme['purple-dark']};
         color: ${(props) => props.theme['purple-light']};
       }
@@ -55,9 +56,9 @@ export const HeaderContainer = styled.header`
       background-color: ${(props) => props.theme['yellow-light']};
       color: ${(props) => props.theme['yellow-dark']};
 
-      transition: all ease-in-out 300ms;
-
       &:hover {
+        transition: all ease-in-out 300ms;
+
         background-color: ${(props) => props.theme['yellow-dark']};
         color: ${(props) => props.theme['yellow-light']};
       }

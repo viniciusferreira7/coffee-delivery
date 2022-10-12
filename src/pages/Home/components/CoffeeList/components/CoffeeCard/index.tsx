@@ -13,7 +13,6 @@ export function CoffeeCard() {
           alt="Traditional Espresso Coffee"
         />
         <h4>Tradicional</h4>
-        {/* Ajustar o espaçamento do h4 */}
       </header>
       <main>
         <h2>Expresso Tradicional</h2>

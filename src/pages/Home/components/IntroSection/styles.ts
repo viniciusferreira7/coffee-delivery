@@ -37,6 +37,8 @@ export const IntroSectionContainer = styled.section<IntroSectionProps>`
     column-gap: 2.5rem;
 
     max-width: 35.43rem;
+
+    font-size: 0.88rem;
   }
 
   @media screen and (max-width: 768px) {

@@ -16,8 +16,7 @@ export const CoffeeCardContainer = styled.div`
 
   & > header {
     img {
-      position: relative;
-      top: -1.25rem;
+      margin-top: -1.25rem;
     }
 
     h4 {
@@ -31,6 +30,7 @@ export const CoffeeCardContainer = styled.div`
       background-color: ${(props) => props.theme['yellow-light']};
 
       margin: auto;
+      margin-top: 1rem;
       margin-bottom: 1.25rem;
     }
   }
@@ -87,11 +87,11 @@ export const Buy = styled.footer`
       background-color: ${(props) => props.theme['purple-dark']};
       color: ${(props) => props.theme['base-card']};
 
-      transition: all ease-in-out 300ms;
-
       cursor: pointer;
 
       &:hover {
+        transition: all ease-in-out 300ms;
+
         background-color: ${(props) => props.theme.purple};
       }
     }
