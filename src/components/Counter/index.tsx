@@ -1,8 +1,12 @@
 import { Minus, Plus } from 'phosphor-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CounterContainer } from './styles'
 
-export function Counter() {
+interface CounterProps {
+  getValue: (amount: number) => void
+}
+
+export function Counter({ getValue }: CounterProps) {
   const [count, setCount] = useState(1)
 
   function decreaseCount() {
@@ -16,6 +20,10 @@ export function Counter() {
   function increaseCount() {
     setCount((state) => state + 1)
   }
+
+  useEffect(() => {
+    getValue(count)
+  }, [count, getValue])
 
   return (
     <CounterContainer>

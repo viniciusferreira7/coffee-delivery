@@ -3,8 +3,14 @@ import { Buy, CoffeeCardContainer } from './styles'
 import traditionalEspressoCoffee from '../../../../../../assets/traditional-espresso-coffee.svg'
 import { Counter } from '../../../../../../components/Counter'
 import { ShoppingCartSimple } from 'phosphor-react'
+import { useState } from 'react'
 
 export function CoffeeCard() {
+  const [price, setPrice] = useState(9.9)
+
+  function getValue(amount: number) {
+    setPrice(amount * 9.9)
+  }
   return (
     <CoffeeCardContainer>
       <header>
@@ -20,10 +26,10 @@ export function CoffeeCard() {
       </main>
       <Buy>
         <p>
-          R$ <strong>9,90</strong>
+          R$ <strong>{price.toFixed(2)}</strong>
         </p>
         <div>
-          <Counter />
+          <Counter getValue={getValue} />
           <button title="Comprar">
             <ShoppingCartSimple size={19} weight="fill" />
           </button>
