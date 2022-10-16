@@ -18,21 +18,6 @@ export const CoffeeCardContainer = styled.div`
     img {
       margin-top: -1.25rem;
     }
-
-    h4 {
-      width: 4.25rem;
-
-      text-align: center;
-      font-size: 0.625rem;
-      text-transform: uppercase;
-      color: ${(props) => props.theme['yellow-dark']};
-
-      background-color: ${(props) => props.theme['yellow-light']};
-
-      margin: auto;
-      margin-top: 1rem;
-      margin-bottom: 1.25rem;
-    }
   }
 
   & > main {
@@ -52,6 +37,25 @@ export const CoffeeCardContainer = styled.div`
 
       padding: 0.5rem 0 2rem 0;
     }
+  }
+`
+
+export const TagsCoffess = styled.div`
+  display: flex;
+  gap: 0.25rem;
+
+  h4 {
+    font-size: 0.625rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: ${(props) => props.theme['yellow-dark']};
+
+    background-color: ${(props) => props.theme['yellow-light']};
+
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+    padding: 0 0.5rem;
+    border-radius: 100px;
   }
 `
 export const Buy = styled.footer`

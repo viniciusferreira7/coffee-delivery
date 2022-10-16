@@ -1,6 +1,6 @@
-import { Buy, CoffeeCardContainer } from './styles'
+import { Buy, CoffeeCardContainer, TagsCoffess } from './styles'
 
-import traditionalEspressoCoffee from '../../../../../../assets/traditional-espresso-coffee.svg'
+import traditionalExpressCoffee from '../../../../../../assets/coffees/traditional-express.svg'
 import { Counter } from '../../../../../../components/Counter'
 import { ShoppingCartSimple } from 'phosphor-react'
 import { useState } from 'react'
@@ -14,11 +14,11 @@ export function CoffeeCard() {
   return (
     <CoffeeCardContainer>
       <header>
-        <img
-          src={traditionalEspressoCoffee}
-          alt="Traditional Espresso Coffee"
-        />
-        <h4>Tradicional</h4>
+        <img src={traditionalExpressCoffee} alt="Traditional Espresso Coffee" />
+        <TagsCoffess>
+          <h4>Tradicional</h4>
+          <h4>Leite</h4>
+        </TagsCoffess>
       </header>
       <main>
         <h2>Expresso Tradicional</h2>
