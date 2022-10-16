@@ -1,28 +1,46 @@
 import { Buy, CoffeeCardContainer, TagsCoffess } from './styles'
 
-import traditionalExpressCoffee from '../../../../../../assets/coffees/traditional-express.svg'
 import { Counter } from '../../../../../../components/Counter'
 import { ShoppingCartSimple } from 'phosphor-react'
 import { useState } from 'react'
 
-export function CoffeeCard() {
-  const [price, setPrice] = useState(9.9)
+interface CoffeeCardProps {
+  image: string
+  tag1: string
+  tag2?: string
+  tag3?: string
+  name: string
+  description: string
+  number: number
+}
+
+export function CoffeeCard({
+  image,
+  tag1,
+  tag2,
+  tag3,
+  name,
+  description,
+  number,
+}: CoffeeCardProps) {
+  const [price, setPrice] = useState(number)
 
   function getValue(amount: number) {
-    setPrice(amount * 9.9)
+    setPrice(amount * number)
   }
   return (
     <CoffeeCardContainer>
       <header>
-        <img src={traditionalExpressCoffee} alt="Traditional Espresso Coffee" />
+        <img src={image} alt={`Xícara de café ${name}`} />
         <TagsCoffess>
-          <h4>Tradicional</h4>
-          <h4>Leite</h4>
+          <h4>{tag1}</h4>
+          {tag2 && <h4>{tag2}</h4>}
+          {tag3 && <h4>{tag3}</h4>}
         </TagsCoffess>
       </header>
       <main>
-        <h2>Expresso Tradicional</h2>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <h2>{name}</h2>
+        <p>{description}</p>
       </main>
       <Buy>
         <p>
