@@ -44,7 +44,7 @@ export const IntroSectionContainer = styled.section<IntroSectionProps>`
   @media screen and (max-width: 768px) {
     flex-direction: column;
 
-    padding-top: 1rem;
+    padding: 1rem 0.25rem 6.25rem;
 
     & > img {
       width: 20rem;

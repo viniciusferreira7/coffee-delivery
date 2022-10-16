@@ -1,7 +1,7 @@
-import TradicionalExpress from '../assets/coffees/tradicional-express.svg'
+import TraditionalExpress from '../assets/coffees/traditional-express.svg'
 import AmericanExpress from '../assets/coffees/american-express.svg'
 import CreamyEspresso from '../assets/coffees/creamy-espresso.svg'
-import IcedEspresso from '../assets/coffees/IcedEspresso.svg'
+import IcedEspresso from '../assets/coffees/iced-espresso.svg'
 import CoffeeWithMilk from '../assets/coffees/coffee-with-milk.svg'
 import Latte from '../assets/coffees/latte.svg'
 import Capuccino from '../assets/coffees/capuccino.svg'
@@ -25,7 +25,7 @@ interface CoffeeType {
 
 export const AllCoffeeData: CoffeeType[] = [
   {
-    image: TradicionalExpress,
+    image: TraditionalExpress,
     tag1: 'Tradicional',
     name: 'Expresso tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',

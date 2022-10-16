@@ -15,15 +15,15 @@ export const CoffeeCardContainer = styled.div`
   border-top-right-radius: 32px;
 
   & > header {
+    text-align: center;
+
     img {
-      margin-top: -1.25rem;
+      margin: -1.25rem auto 0;
     }
   }
 
   & > main {
     text-align: center;
-
-    padding: 0 1.25rem;
 
     h2 {
       font-size: 1.25rem;
@@ -33,9 +33,9 @@ export const CoffeeCardContainer = styled.div`
       width: 13.5rem;
 
       color: ${(props) => props.theme['base-label']};
-      font-size: 0.8875rem;
+      font-size: 0.875rem;
 
-      padding: 0.5rem 0 2rem 0;
+      margin: 0.5rem 0 2.06rem 0;
     }
   }
 `
@@ -43,6 +43,7 @@ export const CoffeeCardContainer = styled.div`
 export const TagsCoffess = styled.div`
   display: flex;
   gap: 0.25rem;
+  justify-content: center;
 
   h4 {
     font-size: 0.625rem;
@@ -52,8 +53,8 @@ export const TagsCoffess = styled.div`
 
     background-color: ${(props) => props.theme['yellow-light']};
 
-    margin-top: 1rem;
-    margin-bottom: 1.25rem;
+    margin-top: 0.55rem;
+    margin-bottom: 1rem;
     padding: 0 0.5rem;
     border-radius: 100px;
   }
