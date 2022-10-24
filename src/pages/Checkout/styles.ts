@@ -45,6 +45,13 @@ export const ArticleContainer = styled.article`
 `
 
 export const FormContainer = styled.form`
+  display: grid;
+  grid-template-areas:
+    'cep'
+    'rua'
+    'numero complemento opcional'
+    'bairro cidade uf';
+
   max-width: 40rem;
   width: 100%;
   height: 36.93rem;
@@ -52,6 +59,31 @@ export const FormContainer = styled.form`
   border-radius: 6px;
 
   background: ${(props) => props.theme['base-card']};
+
+  input:nth-of-type(1) {
+    grid-area: cep;
+  }
+  input:nth-of-type(2) {
+    grid-area: rua;
+  }
+  input:nth-of-type(3) {
+    grid-area: numero;
+  }
+  input:nth-of-type(4) {
+    grid-area: complemento;
+  }
+  input:nth-of-type(5) {
+    grid-area: opcional;
+  }
+  input:nth-of-type(6) {
+    grid-area: bairro;
+  }
+  input:nth-of-type(7) {
+    grid-area: cidade;
+  }
+  input:nth-of-type(8) {
+    grid-area: uf;
+  }
 `
 
 export const SectionPaymentContainer = styled.section``

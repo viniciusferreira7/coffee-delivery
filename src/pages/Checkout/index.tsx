@@ -29,11 +29,7 @@ export function Checkout() {
       </SectionFormContainer>
       <SectionPaymentContainer>
         <ArticleContainer>
-          <CurrencyDollar
-            size={22}
-            color="#8047F8
-"
-          />
+          <CurrencyDollar size={22} color="#8047F8" />
           <h2>Pagamento</h2>
           <p>
             O pagamento é feito na entrega. Escolha a forma que deseja pagar
