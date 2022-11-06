@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from 'react'
-import { AllCoffeeData } from './AllcoffeeData'
+import { AllCoffeeData } from '../utils/AllCoffeeData'
 
 interface CoffeeType {
   image: string
