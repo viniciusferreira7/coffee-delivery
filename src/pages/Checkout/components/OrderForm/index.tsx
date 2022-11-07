@@ -1,45 +1,66 @@
-import { CurrencyDollar, MapPinLine } from 'phosphor-react'
-import React from 'react'
+import { CreditCard, CurrencyDollar, MapPinLine } from 'phosphor-react'
 import {
   ArticleContainer,
-  FormContainer,
+  AddressCard,
   InputGroup,
   OrderFormContainer,
-  SectionFormContainer,
-  SectionPaymentContainer,
+  PaymentCard,
+  ButtonGroup,
+  Button,
 } from './styles'
 
 export default function OrderForm() {
   return (
     <OrderFormContainer>
-      <SectionFormContainer>
-        <h2>Complete seu pedido</h2>
-        <FormContainer>
-          <ArticleContainer>
-            <MapPinLine size={22} weight="regular" color="#C47F17" />
-            <h3>Endereço de Entrega</h3>
-            <p>Informe o endereço onde deseja receber seu pedido</p>
-          </ArticleContainer>
-          <InputGroup>
-            <input type="text" placeholder="CEP" />
-            <input type="text" placeholder="Rua" />
-            <input type="number" placeholder="Numero" />
-            <input type="text" placeholder="Complemento" />
-            <input type="text" placeholder="Bairro" />
-            <input type="text" placeholder="Cidade" />
-            <input type="text" placeholder="UF" />
-          </InputGroup>
-        </FormContainer>
-      </SectionFormContainer>
-      <SectionPaymentContainer>
+      <h2>Complete seu pedido</h2>
+      <AddressCard>
+        <ArticleContainer>
+          <MapPinLine size={22} weight="regular" color="#C47F17" />
+          <h3>Endereço de Entrega</h3>
+          <p>Informe o endereço onde deseja receber seu pedido</p>
+        </ArticleContainer>
+        <InputGroup>
+          {/* Arrumar os espaçamentos das labels */}
+          <label htmlFor="CEP">
+            <input name="CEP" type="text" placeholder="CEP" />
+          </label>
+          <label htmlFor="Rua">
+            <input name="Rua" type="text" placeholder="Rua" />
+          </label>
+          <label htmlFor="Numero">
+            <input name="Numero" type="number" placeholder="Numero" />
+          </label>
+          <label htmlFor="Complemento">
+            <span>Opcional</span>
+            <input name="Complemento" type="text" placeholder="Complemento" />
+          </label>
+          <label htmlFor="Bairro">
+            <input name="Bairro" type="text" placeholder="Bairro" />
+          </label>
+          <label htmlFor="Cidade">
+            <input name="Cidade" type="text" placeholder="Cidade" />
+          </label>
+          <label htmlFor="UF">
+            <input name="UF" type="text" placeholder="UF" />
+          </label>
+        </InputGroup>
+      </AddressCard>
+      <PaymentCard>
         <ArticleContainer>
           <CurrencyDollar size={22} color="#8047F8" />
-          <h2>Pagamento</h2>
+          <h3>Pagamento</h3>
           <p>
             O pagamento é feito na entrega. Escolha a forma que deseja pagar
           </p>
         </ArticleContainer>
-      </SectionPaymentContainer>
+        <ButtonGroup>
+          <Button>
+            <CreditCard size={32} weight="fill" />
+
+            <p>Cartão de crédito</p>
+          </Button>
+        </ButtonGroup>
+      </PaymentCard>
     </OrderFormContainer>
   )
 }

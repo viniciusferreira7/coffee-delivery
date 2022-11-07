@@ -1,13 +1,12 @@
 import styled from 'styled-components'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
-export const OrderFormContainer = styled.section``
-
-export const SectionFormContainer = styled.section`
+export const OrderFormContainer = styled.section`
   h2 {
     font-size: 1.125rem;
+    margin-bottom: 0.93rem;
   }
 `
-
 export const ArticleContainer = styled.article`
   display: grid;
   grid-template-areas:
@@ -40,10 +39,10 @@ export const ArticleContainer = styled.article`
   }
 `
 
-export const FormContainer = styled.form`
+export const AddressCard = styled.div`
   max-width: 40rem;
   width: 100%;
-  height: 36.93rem;
+  height: 23.25rem;
   padding: 2.5rem;
   border-radius: 6px;
 
@@ -52,41 +51,78 @@ export const FormContainer = styled.form`
 
 export const InputGroup = styled.div`
   display: grid;
+  column-gap: 0.75rem;
+  row-gap: 1rem;
   grid-template-areas:
-    'cep'
-    'rua'
-    'numero complemento'
+    'cep cep cep'
+    'rua rua rua'
+    'numero complemento complemento'
     'bairro cidade uf';
 
   width: 100%;
 
-  input[placeholder='CEP'] {
+  label {
+    max-width: 12.5rem;
+    width: 100%;
+
+    input {
+      width: 100%;
+      height: 2.5rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      border: 1px solid ${(props) => props.theme['base-button']};
+
+      background: ${(props) => props.theme['base-input']};
+    }
+  }
+
+  label[for='CEP'] {
     grid-area: cep;
   }
 
-  input[placeholder='Rua'] {
+  label[for='Rua'] {
     grid-area: rua;
+    max-width: 35rem;
   }
 
-  input[placeholder='Numero'] {
+  label[for='Numero'] {
     grid-area: numero;
   }
 
-  input[placeholder='Complemento'] {
+  label[for='Complemento'] {
     grid-area: complemento;
+    max-width: 21.75rem;
+    position: relative;
+
+    span {
+      position: absolute;
+      right: 0.75rem;
+      top: 0.81rem;
+
+      font: italic 400 0.75rem 'Roboto';
+      color: ${(props) => props.theme['base-label']};
+    }
   }
 
-  input[placeholder='Bairro'] {
+  label[for='Bairro'] {
     grid-area: bairro;
   }
 
-  input[placeholder='Cidade'] {
+  label[for='Cidade'] {
     grid-area: cidade;
+    max-width: 17.25rem;
   }
 
-  input[placeholder='UF'] {
+  label[for='UF'] {
     grid-area: uf;
+    max-width: 3.75rem;
   }
 `
 
-export const SectionPaymentContainer = styled.section``
+export const PaymentCard = styled(AddressCard)`
+  height: 12.93rem;
+  margin-top: 0.75rem;
+`
+export const ButtonGroup = styled(RadioGroup.Root)
+
+export const Button = styled(RadioGroup.Item)

@@ -41,6 +41,10 @@ export const HeaderContainer = styled.header`
 
         background-color: ${(props) => props.theme['purple-dark']};
         color: ${(props) => props.theme['purple-light']};
+
+        svg {
+          color: ${(props) => props.theme.white};
+        }
       }
 
       svg {
