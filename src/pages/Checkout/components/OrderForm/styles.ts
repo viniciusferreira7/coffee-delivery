@@ -123,6 +123,41 @@ export const PaymentCard = styled(AddressCard)`
   height: 12.93rem;
   margin-top: 0.75rem;
 `
-export const ButtonGroup = styled(RadioGroup.Root)
+export const ButtonGroup = styled(RadioGroup.Root)`
+  display: flex;
+  gap: 0.75rem;
+`
 
-export const Button = styled(RadioGroup.Item)
+export const Button = styled(RadioGroup.Item)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+
+  max-width: 11.16rem;
+  width: 100%;
+  height: 3.18rem;
+
+  background: ${(props) => props.theme['base-button']};
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  &[date-state='unchecked']:hover {
+    background: ${(props) => props.theme['base-hover']};
+  }
+
+  &[date-state='checked'] {
+    background: ${(props) => props.theme['purple-light']};
+    border-color: ${(props) => props.theme.purple};
+  }
+
+  p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: ${(props) => props.theme['base-text']};
+  }
+
+  svg {
+    color: ${(props) => props.theme.purple};
+  }
+`

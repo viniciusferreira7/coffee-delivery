@@ -1,4 +1,10 @@
-import { CreditCard, CurrencyDollar, MapPinLine } from 'phosphor-react'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from 'phosphor-react'
 import {
   ArticleContainer,
   AddressCard,
@@ -53,11 +59,21 @@ export default function OrderForm() {
             O pagamento é feito na entrega. Escolha a forma que deseja pagar
           </p>
         </ArticleContainer>
-        <ButtonGroup>
-          <Button>
-            <CreditCard size={32} weight="fill" />
+        <ButtonGroup required>
+          <Button value="crédito">
+            <CreditCard size={16} weight="regular" />
 
             <p>Cartão de crédito</p>
+          </Button>
+          <Button value="débito">
+            <Bank size={16} weight="regular" />
+
+            <p>Cartão de debito</p>
+          </Button>
+          <Button value="dinheiro">
+            <Money size={16} weight="regular" />
+
+            <p>Dinheiro</p>
           </Button>
         </ButtonGroup>
       </PaymentCard>
