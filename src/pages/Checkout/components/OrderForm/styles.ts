@@ -73,6 +73,11 @@ export const InputGroup = styled.div`
       border: 1px solid ${(props) => props.theme['base-button']};
 
       background: ${(props) => props.theme['base-input']};
+
+      &:focus {
+        transition: all 300ms ease-in-out;
+        border-color: ${(props) => props.theme['yellow-dark']};
+      }
     }
   }
 
@@ -142,11 +147,12 @@ export const Button = styled(RadioGroup.Item)`
   border: 1px solid transparent;
   border-radius: 6px;
 
-  &[date-state='unchecked']:hover {
+  &[data-state='unchecked']:hover {
+    transition: all 0.2s ease-in-out;
     background: ${(props) => props.theme['base-hover']};
   }
 
-  &[date-state='checked'] {
+  &[data-state='checked'] {
     background: ${(props) => props.theme['purple-light']};
     border-color: ${(props) => props.theme.purple};
   }
