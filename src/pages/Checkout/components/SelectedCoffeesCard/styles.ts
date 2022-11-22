@@ -16,6 +16,20 @@ export const CardContainer = styled.div`
 
   background-color: ${(props) => props.theme['base-card']};
 `
-export const CoffeeSelected = styled.div``
+export const CoffeeSelected = styled.div`
+  img {
+    grid-area: img;
+  }
 
-export const Button = styled.button``
+  h4 {
+    grid-area: h4;
+  }
+
+  p {
+    grid-area: price;
+  }
+`
+
+export const Button = styled.button`
+  grid-area: button;
+`

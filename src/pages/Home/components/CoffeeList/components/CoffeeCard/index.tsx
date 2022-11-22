@@ -25,9 +25,10 @@ export function CoffeeCard({
 }: CoffeeCardProps) {
   const [price, setPrice] = useState(number)
 
-  function getValue(amount: number) {
+  function getTheAmountOfCoffees(amount: number) {
     setPrice(amount * number)
   }
+
   return (
     <CoffeeCardContainer>
       <header>
@@ -47,7 +48,7 @@ export function CoffeeCard({
           R$ <strong>{price.toFixed(2)}</strong>
         </p>
         <div>
-          <Counter getValue={getValue} />
+          <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
           <button title="Comprar">
             <ShoppingCartSimple size={19} weight="fill" />
           </button>

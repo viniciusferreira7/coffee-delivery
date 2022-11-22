@@ -139,9 +139,9 @@ export const Button = styled(RadioGroup.Item)`
   align-items: center;
   gap: 0.75rem;
 
-  max-width: 11.16rem;
-  width: 100%;
+  width: 11.16rem;
   height: 3.18rem;
+  padding: 0 2%;
 
   background: ${(props) => props.theme['base-button']};
   border: 1px solid transparent;

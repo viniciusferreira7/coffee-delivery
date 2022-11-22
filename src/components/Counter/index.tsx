@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 import { CounterContainer } from './styles'
 
 interface CounterProps {
-  getValue: (amount: number) => void
+  getTheAmountOfCoffees: (amount: number) => void
 }
 
-export function Counter({ getValue }: CounterProps) {
+export function Counter({ getTheAmountOfCoffees }: CounterProps) {
   const [count, setCount] = useState(1)
 
   function decreaseCount() {
@@ -22,8 +22,8 @@ export function Counter({ getValue }: CounterProps) {
   }
 
   useEffect(() => {
-    getValue(count)
-  }, [count, getValue])
+    getTheAmountOfCoffees(count)
+  }, [count, getTheAmountOfCoffees])
 
   return (
     <CounterContainer>
