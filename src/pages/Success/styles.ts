@@ -6,3 +6,9 @@ export const SuccessContainer = styled.main`
 
   margin: auto;
 `
+
+export const Title = styled.header``
+
+export const OrderInfo = styled.section``
+
+export const Description = styled.div``
