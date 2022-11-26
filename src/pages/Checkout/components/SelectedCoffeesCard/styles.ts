@@ -47,7 +47,7 @@ export const CoffeeSelected = styled.div`
 
   p {
     grid-area: price;
-    margin-left: 3rem;
+    margin-left: 2.5rem;
     font-weight: 700;
   }
 `
@@ -77,5 +77,51 @@ export const Button = styled.button`
     transition: all 300ms ease-in-out;
     background: ${(props) => props.theme['base-hover']};
     border-color: ${(props) => props.theme.purple};
+  }
+`
+
+export const TotalItems = styled.footer`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  margin-top: 1.5rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    &:last-of-type {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: ${(props) => props.theme['base-subtitle']};
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+`
+
+export const ConfirmOrderButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 23rem;
+  height: 2.875rem;
+  margin-top: 1.5rem;
+
+  background: ${(props) => props.theme.yellow};
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: ${(props) => props.theme.white};
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+
+  &:hover {
+    transition: all 300ms ease-in-out;
+    background: ${(props) => props.theme['yellow-dark']};
   }
 `

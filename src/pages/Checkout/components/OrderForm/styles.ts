@@ -147,6 +147,8 @@ export const Button = styled(RadioGroup.Item)`
   border: 1px solid transparent;
   border-radius: 6px;
 
+  cursor: pointer;
+
   &[data-state='unchecked']:hover {
     transition: all 0.2s ease-in-out;
     background: ${(props) => props.theme['base-hover']};

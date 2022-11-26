@@ -5,9 +5,12 @@ import {
   Button,
   CardContainer,
   CoffeeSelected,
+  ConfirmOrderButton,
   SelectedCoffeesCardContainer,
+  TotalItems,
 } from './styles'
 import TraditionalExpress from '../../../../assets/coffees/traditional-express.svg'
+import { NavLink } from 'react-router-dom'
 
 export default function SelectedCoffeesCard() {
   const [price, setPrice] = useState(0)
@@ -15,6 +18,8 @@ export default function SelectedCoffeesCard() {
   function getTheAmountOfCoffees(amount: number) {
     setPrice(amount * 9.8)
   }
+
+  const PriceIsTrue = price && 'R$ ' + price.toFixed(2)
 
   return (
     <SelectedCoffeesCardContainer>
@@ -26,12 +31,31 @@ export default function SelectedCoffeesCard() {
           <div>
             <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
           </div>
-          <Button>
+          <Button type="button" aria-label="remover">
             <Trash size={16} weight="regular" />
             <span>Remover</span>
           </Button>
-          <p>{price && 'R$ ' + price.toFixed(2)}</p>
+          <p>{PriceIsTrue}</p>
         </CoffeeSelected>
+        <TotalItems>
+          <div>
+            <p>Total de Itens</p>
+            <p>{PriceIsTrue}</p>
+          </div>
+          <div>
+            <p>Entrega</p>
+            <p>R$ 3.50</p>
+          </div>
+          <div>
+            <p>Total</p>
+            <p>{PriceIsTrue && (price + 3.5).toFixed(2)}</p>
+          </div>
+          <NavLink to="/success" title="Success">
+            <ConfirmOrderButton aria-label="confirmar">
+              Confirmar pedido
+            </ConfirmOrderButton>
+          </NavLink>
+        </TotalItems>
       </CardContainer>
     </SelectedCoffeesCardContainer>
   )
