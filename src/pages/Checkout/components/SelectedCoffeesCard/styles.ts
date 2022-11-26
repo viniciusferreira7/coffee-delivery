@@ -50,6 +50,12 @@ export const CoffeeSelected = styled.div`
     margin-left: 2.5rem;
     font-weight: 700;
   }
+
+  @media screen and (max-width: 768px) {
+    p {
+      margin-left: 1.5rem;
+    }
+  }
 `
 
 export const Button = styled.button`
@@ -108,7 +114,8 @@ export const ConfirmOrderButton = styled.button`
   justify-content: center;
   align-items: center;
 
-  width: 23rem;
+  max-width: 23rem;
+  width: 100%;
   height: 2.875rem;
   margin-top: 1.5rem;
 

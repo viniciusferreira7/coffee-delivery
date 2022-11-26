@@ -8,4 +8,8 @@ export const CheckoutContainer = styled.form`
   width: 100%;
 
   margin: auto;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `

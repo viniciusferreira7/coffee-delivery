@@ -168,4 +168,12 @@ export const Button = styled(RadioGroup.Item)`
   svg {
     color: ${(props) => props.theme.purple};
   }
+
+  @media screen and (max-width: 768px) {
+    gap: 0.3rem;
+
+    p {
+      font-size: 0.5rem;
+    }
+  }
 `
