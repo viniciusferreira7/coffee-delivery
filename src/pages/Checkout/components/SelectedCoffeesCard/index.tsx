@@ -23,12 +23,14 @@ export default function SelectedCoffeesCard() {
         <CoffeeSelected>
           <img src={TraditionalExpress} alt="Café" />
           <h4>Expresso Tradicional</h4>
-          <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
+          <div>
+            <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
+          </div>
           <Button>
             <Trash size={16} weight="regular" />
             <span>Remover</span>
           </Button>
-          <p>{price.toFixed(2)}</p>
+          <p>{price && 'R$ ' + price.toFixed(2)}</p>
         </CoffeeSelected>
       </CardContainer>
     </SelectedCoffeesCardContainer>

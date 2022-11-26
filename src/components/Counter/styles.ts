@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const CounterContainer = styled.div`
-  grid-area: counter;
-
   display: flex;
   align-items: center;
   justify-content: space-around;
