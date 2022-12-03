@@ -10,18 +10,24 @@ export interface Coffee {
   number: number
 }
 
-interface CoffeeState {
-  coffee: Coffee[]
+interface CoffeesState {
+  coffees: Coffee[]
 }
 
 interface Action {
   type: ActionTypes
-  payload: Coffee
+  payload: {
+    newCoffee: Coffee
+    coffee: Coffee
+  }
 }
 
-export function coffeeReducer(state: CoffeeState, action: Action) {
+export function coffeesReducer(state: CoffeesState, action: Action) {
   switch (action.type) {
     case ActionTypes.ADD_COFFEE:
-      return state
+      return [...state.coffees, action.payload.newCoffee]
+
+    default:
+      return state.coffees
   }
 }
