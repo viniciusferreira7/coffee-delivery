@@ -92,10 +92,6 @@ export const OrderInfo = styled.section`
     height: 100%;
     background: ${(props) => props.theme.white};
   }
-
-  @media screen and (max-width: 768px) {
-    max-width: ;
-  }
 `
 const iconColor = {
   purple: 'purple',

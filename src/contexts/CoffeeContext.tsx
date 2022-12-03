@@ -1,4 +1,5 @@
-import { createContext, ReactNode } from 'react'
+import { createContext, ReactNode, useReducer } from 'react'
+import { coffeeReducer } from '../reducers/coffees/reducer'
 import { AllCoffeeData } from '../utils/AllCoffeeData'
 
 interface CoffeeType {
@@ -24,6 +25,10 @@ interface CoffeeContextProviderProps {
 export function CoffeeContextProvider({
   children,
 }: CoffeeContextProviderProps) {
+  const [coffeesState, dispatch] = useReducer(coffeeReducer, {
+    coffees: [],
+  })
+
   return (
     <CoffeeContext.Provider value={{ AllCoffeeData }}>
       {children}
