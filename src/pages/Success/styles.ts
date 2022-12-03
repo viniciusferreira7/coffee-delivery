@@ -5,12 +5,28 @@ export const SuccessContainer = styled.main`
   gap: 2.5rem;
   grid-template-areas:
     'header header'
-    'orderInfo description';
+    'orderInfo img';
 
   max-width: 70rem;
   width: 100%;
-
   margin: auto;
+  margin-top: 5rem;
+
+  img {
+    grid-area: img;
+    justify-self: flex-end;
+  }
+
+  @media screen and (max-width: 798px) {
+    grid-template-areas:
+      'header '
+      'orderInfo';
+    margin-top: 2rem;
+
+    img {
+      display: none;
+    }
+  }
 `
 
 export const Title = styled.header`
@@ -28,6 +44,18 @@ export const Title = styled.header`
   h4 {
     font-size: 1.25rem;
     font-weight: 400;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 22rem;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+    }
   }
 `
 
@@ -64,6 +92,10 @@ export const OrderInfo = styled.section`
     height: 100%;
     background: ${(props) => props.theme.white};
   }
+
+  @media screen and (max-width: 768px) {
+    max-width: ;
+  }
 `
 const iconColor = {
   purple: 'purple',
@@ -82,14 +114,14 @@ export const Description = styled.div<IconProps>`
   gap: 0.75rem;
   align-items: center;
 
-  width: 22.18rem;
+  max-width: 22.18rem;
 
   & > div {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 2rem;
+    min-width: 2rem;
     height: 2rem;
     border-radius: 9999px;
     background: ${(props) => props.theme[props.color]};
@@ -97,5 +129,12 @@ export const Description = styled.div<IconProps>`
 
   svg {
     color: ${(props) => props.theme.white};
+  }
+
+  @media screen and (max-width: 768px) {
+    p {
+      max-width: 16rem;
+      font-size: 0.75rem;
+    }
   }
 `
