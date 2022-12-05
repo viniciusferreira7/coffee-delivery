@@ -25,9 +25,17 @@ interface Action {
 export function coffeesReducer(state: CoffeesState, action: Action) {
   switch (action.type) {
     case ActionTypes.ADD_COFFEE:
-      return [...state.coffees, action.payload.newCoffee]
+      return { ...state, coffees: [...state.coffees, action.payload.newCoffee] }
+
+    case ActionTypes.REMOVE_COFFEE:
+      return {
+        ...state,
+        coffees: state.coffees.filter(
+          (coffee) => action.payload.coffee !== coffee,
+        ),
+      }
 
     default:
-      return state.coffees
+      return state
   }
 }
