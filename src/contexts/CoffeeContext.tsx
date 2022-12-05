@@ -1,4 +1,8 @@
 import { createContext, ReactNode, useReducer } from 'react'
+import {
+  addNewCoffeeAction,
+  removeCoffeeAction,
+} from '../reducers/coffees/actions'
 import { coffeesReducer } from '../reducers/coffees/reducer'
 import { AllCoffeeData } from '../utils/AllCoffeeData'
 
@@ -28,6 +32,14 @@ export function CoffeeContextProvider({
   const [coffeesState, dispatch] = useReducer(coffeesReducer, {
     coffees: [],
   })
+
+  // function addNewCoffee() {
+  //   dispatch(addNewCoffeeAction)
+  // }
+
+  // function removeCoffee() {
+  //   dispatch(removeCoffeeAction)
+  // }
 
   return (
     <CoffeeContext.Provider value={{ AllCoffeeData }}>
