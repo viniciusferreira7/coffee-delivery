@@ -8,13 +8,13 @@ export enum ActionTypes {
 export function addNewCoffeeAction(newCoffee: Coffee) {
   return {
     type: ActionTypes.ADD_COFFEE,
-    payload: newCoffee,
+    payload: { coffee: newCoffee },
   }
 }
 
 export function removeCoffeeAction(coffee: Coffee) {
   return {
     type: ActionTypes.REMOVE_COFFEE,
-    payload: coffee,
+    payload: { coffee },
   }
 }

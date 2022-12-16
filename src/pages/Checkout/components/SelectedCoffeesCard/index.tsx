@@ -12,7 +12,7 @@ import {
 import TraditionalExpress from '../../../../assets/coffees/traditional-express.svg'
 import { NavLink } from 'react-router-dom'
 
-export default function SelectedCoffeesCard() {
+export function SelectedCoffeesCard() {
   const [price, setPrice] = useState(0)
 
   function getTheAmountOfCoffees(amount: number) {
@@ -48,7 +48,7 @@ export default function SelectedCoffeesCard() {
           </div>
           <div>
             <p>Total</p>
-            <p>{PriceIsTrue && (price + 3.5).toFixed(2)}</p>
+            <p>{PriceIsTrue && 'R$' + (price + 3.5).toFixed(2)}</p>
           </div>
           <NavLink to="/success" title="Success">
             <ConfirmOrderButton aria-label="confirmar">

@@ -12,8 +12,6 @@ export const HeaderContainer = styled.header`
 
   padding: 0 10.5%;
 
-  margin: auto;
-
   nav {
     display: flex;
     gap: 0.75rem;

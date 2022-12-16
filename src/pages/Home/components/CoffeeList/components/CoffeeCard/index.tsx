@@ -2,7 +2,8 @@ import { Buy, CoffeeCardContainer, TagsCoffess } from './styles'
 
 import { Counter } from '../../../../../../components/Counter'
 import { ShoppingCartSimple } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { CoffeeContext } from '../../../../../../contexts/CoffeeContext'
 
 interface CoffeeCardProps {
   image: string
@@ -23,10 +24,24 @@ export function CoffeeCard({
   description,
   number,
 }: CoffeeCardProps) {
+  const { addNewCoffee } = useContext(CoffeeContext)
   const [price, setPrice] = useState(number)
 
   function getTheAmountOfCoffees(amount: number) {
     setPrice(amount * number)
+  }
+
+  function handleAddNewCoffee() {
+    const newCoffee = {
+      image,
+      tag1,
+      tag2,
+      tag3,
+      name,
+      description,
+      number: price,
+    }
+    addNewCoffee(newCoffee)
   }
 
   return (
@@ -49,7 +64,7 @@ export function CoffeeCard({
         </p>
         <div>
           <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
-          <button title="Comprar">
+          <button onClick={handleAddNewCoffee} title="Comprar">
             <ShoppingCartSimple size={19} weight="fill" />
           </button>
         </div>

@@ -18,6 +18,8 @@ interface CoffeeType {
 
 interface CoffeeContextType {
   AllCoffeeData: CoffeeType[]
+  addNewCoffee: (newCoffee: CoffeeType) => void
+  removeCoffee: (coffee: CoffeeType) => void
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType)
@@ -33,16 +35,24 @@ export function CoffeeContextProvider({
     coffees: [],
   })
 
-  // function addNewCoffee() {
-  //   dispatch(addNewCoffeeAction)
-  // }
+  console.log(coffeesState)
 
-  // function removeCoffee() {
-  //   dispatch(removeCoffeeAction)
-  // }
+  function addNewCoffee(newCoffee: CoffeeType) {
+    dispatch(addNewCoffeeAction(newCoffee))
+  }
+
+  function removeCoffee(coffee: CoffeeType) {
+    dispatch(removeCoffeeAction(coffee))
+  }
 
   return (
-    <CoffeeContext.Provider value={{ AllCoffeeData }}>
+    <CoffeeContext.Provider
+      value={{
+        AllCoffeeData,
+        addNewCoffee,
+        removeCoffee,
+      }}
+    >
       {children}
     </CoffeeContext.Provider>
   )
