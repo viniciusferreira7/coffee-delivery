@@ -2,7 +2,7 @@ import { Buy, CoffeeCardContainer, TagsCoffess } from './styles'
 
 import { Counter } from '../../../../../../components/Counter'
 import { ShoppingCartSimple } from 'phosphor-react'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CoffeeContext } from '../../../../../../contexts/CoffeeContext'
 
 interface CoffeeCardProps {
@@ -24,7 +24,7 @@ export function CoffeeCard({
   description,
   number,
 }: CoffeeCardProps) {
-  const { addNewCoffee } = useContext(CoffeeContext)
+  const { coffeesState, addNewCoffee } = useContext(CoffeeContext)
   const [price, setPrice] = useState(number)
 
   function getTheAmountOfCoffees(amount: number) {
@@ -41,8 +41,21 @@ export function CoffeeCard({
       description,
       number: price,
     }
+
+    // coffeesState.coffees.forEach((coffee) => {
+    //   if (coffee.name !== newCoffee.name) {
+    //     addNewCoffee(newCoffee)
+    //   }
+
+    //   return coffee
+    // })
+
     addNewCoffee(newCoffee)
   }
+
+  useEffect(() => {
+    console.log(coffeesState)
+  })
 
   return (
     <CoffeeCardContainer>

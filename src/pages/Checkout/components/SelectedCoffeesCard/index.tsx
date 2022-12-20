@@ -1,5 +1,5 @@
 import { Trash } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Counter } from '../../../../components/Counter'
 import {
   Button,
@@ -9,10 +9,11 @@ import {
   SelectedCoffeesCardContainer,
   TotalItems,
 } from './styles'
-import TraditionalExpress from '../../../../assets/coffees/traditional-express.svg'
 import { NavLink } from 'react-router-dom'
+import { CoffeeContext } from '../../../../contexts/CoffeeContext'
 
 export function SelectedCoffeesCard() {
+  const { coffeesState, removeCoffee } = useContext(CoffeeContext)
   const [price, setPrice] = useState(0)
 
   function getTheAmountOfCoffees(amount: number) {
@@ -21,22 +22,34 @@ export function SelectedCoffeesCard() {
 
   const PriceIsTrue = price && 'R$ ' + price.toFixed(2)
 
+  function handleRemoveCoffee(name: string) {
+    const coffee = coffeesState.coffees.filter((coffee) => coffee.name === name)
+    console.log(coffee)
+    removeCoffee(name)
+  }
+
   return (
     <SelectedCoffeesCardContainer>
       <h2>Cafés selecionados</h2>
       <CardContainer>
-        <CoffeeSelected>
-          <img src={TraditionalExpress} alt="Café" />
-          <h4>Expresso Tradicional</h4>
-          <div>
-            <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
-          </div>
-          <Button type="button" aria-label="remover">
-            <Trash size={16} weight="regular" />
-            <span>Remover</span>
-          </Button>
-          <p>{PriceIsTrue}</p>
-        </CoffeeSelected>
+        {coffeesState.coffees.map((coffee) => (
+          <CoffeeSelected key={coffee.number}>
+            <img src={coffee.image} alt={coffee.name} />
+            <h4>{coffee.name}</h4>
+            <div>
+              <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
+            </div>
+            <Button
+              onClick={() => handleRemoveCoffee(coffee.name)}
+              type="button"
+              aria-label="remover"
+            >
+              <Trash size={16} weight="regular" />
+              <span>Remover</span>
+            </Button>
+            <p>{PriceIsTrue}</p>
+          </CoffeeSelected>
+        ))}
         <TotalItems>
           <div>
             <p>Total de Itens</p>
