@@ -99,6 +99,11 @@ export const Buy = styled.footer`
 
         background-color: ${(props) => props.theme.purple};
       }
+
+      &:disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+      }
     }
   }
 `

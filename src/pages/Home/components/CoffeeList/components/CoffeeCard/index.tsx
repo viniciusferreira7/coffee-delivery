@@ -2,7 +2,7 @@ import { Buy, CoffeeCardContainer, TagsCoffess } from './styles'
 
 import { Counter } from '../../../../../../components/Counter'
 import { ShoppingCartSimple } from 'phosphor-react'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { CoffeeContext } from '../../../../../../contexts/CoffeeContext'
 
 interface CoffeeCardProps {
@@ -26,6 +26,7 @@ export function CoffeeCard({
 }: CoffeeCardProps) {
   const { coffeesState, addNewCoffee } = useContext(CoffeeContext)
   const [price, setPrice] = useState(number)
+  const [disabled, setDisabled] = useState(false)
 
   function getTheAmountOfCoffees(amount: number) {
     setPrice(amount * number)
@@ -42,20 +43,14 @@ export function CoffeeCard({
       number: price,
     }
 
-    // coffeesState.coffees.forEach((coffee) => {
-    //   if (coffee.name !== newCoffee.name) {
-    //     addNewCoffee(newCoffee)
-    //   }
+    const repeated = coffeesState.coffees.find(
+      (coffee) => coffee.number === newCoffee.number,
+    )
 
-    //   return coffee
-    // })
+    setDisabled(!!repeated)
 
     addNewCoffee(newCoffee)
   }
-
-  useEffect(() => {
-    console.log(coffeesState)
-  })
 
   return (
     <CoffeeCardContainer>
@@ -77,7 +72,11 @@ export function CoffeeCard({
         </p>
         <div>
           <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
-          <button onClick={handleAddNewCoffee} title="Comprar">
+          <button
+            disabled={disabled}
+            onClick={handleAddNewCoffee}
+            title="Comprar"
+          >
             <ShoppingCartSimple size={19} weight="fill" />
           </button>
         </div>
