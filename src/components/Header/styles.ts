@@ -55,6 +55,7 @@ export const HeaderContainer = styled.header`
     }
 
     a:not(:has(span)) {
+      position: relative;
       background-color: ${(props) => props.theme['yellow-light']};
       color: ${(props) => props.theme['yellow-dark']};
 
@@ -63,6 +64,20 @@ export const HeaderContainer = styled.header`
 
         background-color: ${(props) => props.theme['yellow-dark']};
         color: ${(props) => props.theme['yellow-light']};
+      }
+
+      p {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 9999px;
+        background: ${(props) => props.theme['yellow-dark']};
+        color: ${(props) => props.theme.white};
+        font-size: 0.75rem;
+        text-align: center;
       }
     }
   }
