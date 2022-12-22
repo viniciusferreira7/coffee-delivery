@@ -13,3 +13,22 @@ export const CheckoutContainer = styled.form`
     flex-direction: column;
   }
 `
+
+export const EmptyCart = styled.div`
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 50rem;
+  height: 20rem;
+  margin: 0 auto;
+
+  font-size: 1.5rem;
+  color: ${(props) => props.theme['base-label']};
+
+  svg {
+    font-size: 2rem;
+  }
+`
