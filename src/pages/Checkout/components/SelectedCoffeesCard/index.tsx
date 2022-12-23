@@ -20,7 +20,9 @@ export function SelectedCoffeesCard() {
     setPrice(amount * 9.8)
   }
 
-  const PriceIsTrue = price && 'R$ ' + price.toFixed(2)
+  function priceIsTrue(value: number) {
+    return value && 'R$ ' + value.toFixed(2)
+  }
 
   function handleRemoveCoffee(name: string) {
     const coffee = coffeesState.coffees.filter((coffee) => coffee.name === name)
@@ -47,13 +49,13 @@ export function SelectedCoffeesCard() {
               <Trash size={16} weight="regular" />
               <span>Remover</span>
             </Button>
-            <p>{PriceIsTrue}</p>
+            <p>{priceIsTrue(coffee.number)}</p>
           </CoffeeSelected>
         ))}
         <TotalItems>
           <div>
             <p>Total de Itens</p>
-            <p>{PriceIsTrue}</p>
+            <p>N/A</p>
           </div>
           <div>
             <p>Entrega</p>
@@ -61,7 +63,7 @@ export function SelectedCoffeesCard() {
           </div>
           <div>
             <p>Total</p>
-            <p>{PriceIsTrue && 'R$' + (price + 3.5).toFixed(2)}</p>
+            {/* <p>{PriceIsTrue && 'R$' + (price + 3.5).toFixed(2)}</p> */}
           </div>
           <NavLink to="/success" title="Success">
             <ConfirmOrderButton aria-label="confirmar">

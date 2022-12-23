@@ -4,7 +4,7 @@ import { Counter } from '../../../../../../components/Counter'
 
 import { ShoppingCartSimple } from 'phosphor-react'
 
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CoffeeContext } from '../../../../../../contexts/CoffeeContext'
 import { SuccessMessage } from './components/SuccessMessage'
 
@@ -54,6 +54,14 @@ export function CoffeeCard({
 
     setBuy(true)
   }
+
+  useEffect(() => {
+    if (price <= 0) {
+      setDisabled(true)
+    } else {
+      setDisabled(false)
+    }
+  }, [price])
 
   return (
     <CoffeeCardContainer>
