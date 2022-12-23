@@ -1,9 +1,12 @@
 import { Buy, CoffeeCardContainer, TagsCoffess } from './styles'
 
 import { Counter } from '../../../../../../components/Counter'
+
 import { ShoppingCartSimple } from 'phosphor-react'
+
 import { useContext, useState } from 'react'
 import { CoffeeContext } from '../../../../../../contexts/CoffeeContext'
+import { SuccessMessage } from './components/SuccessMessage'
 
 interface CoffeeCardProps {
   image: string
@@ -24,9 +27,11 @@ export function CoffeeCard({
   description,
   number,
 }: CoffeeCardProps) {
-  const { coffeesState, addNewCoffee } = useContext(CoffeeContext)
+  const { addNewCoffee } = useContext(CoffeeContext)
+
   const [price, setPrice] = useState(number)
   const [disabled, setDisabled] = useState(false)
+  const [buy, setBuy] = useState(false)
 
   function getTheAmountOfCoffees(amount: number) {
     setPrice(amount * number)
@@ -43,17 +48,16 @@ export function CoffeeCard({
       number: price,
     }
 
-    const repeated = coffeesState.coffees.find(
-      (coffee) => coffee.number === newCoffee.number,
-    )
-
-    setDisabled(!!repeated)
+    setDisabled(true)
 
     addNewCoffee(newCoffee)
+
+    setBuy(true)
   }
 
   return (
     <CoffeeCardContainer>
+      <SuccessMessage buy={buy} />
       <header>
         <img src={image} alt={`Xícara de café ${name}`} />
         <TagsCoffess>
