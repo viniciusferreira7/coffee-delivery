@@ -4,10 +4,11 @@ import { CounterContainer } from './styles'
 
 interface CounterProps {
   getTheAmountOfCoffees: (amount: number) => void
+  amount?: number
 }
 
-export function Counter({ getTheAmountOfCoffees }: CounterProps) {
-  const [count, setCount] = useState(1)
+export function Counter({ getTheAmountOfCoffees, amount }: CounterProps) {
+  const [count, setCount] = useState(amount || 1)
 
   function decreaseCount() {
     if (count <= 1) {
