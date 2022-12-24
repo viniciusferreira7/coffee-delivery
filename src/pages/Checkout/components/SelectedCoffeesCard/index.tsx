@@ -24,11 +24,18 @@ export function SelectedCoffeesCard() {
     return value && 'R$ ' + value.toFixed(2)
   }
 
+  // Consertar isto
   function handleRemoveCoffee(name: string) {
     const coffee = coffeesState.coffees.filter((coffee) => coffee.name === name)
     console.log(coffee)
     removeCoffee(name)
   }
+
+  const thereIsCoffeeOnTheList = coffeesState.coffees.length >= 1
+
+  const valueOfAllCoffees = coffeesState.coffees.reduce((acc, coffee) => {
+    return acc + coffee.number
+  }, 0)
 
   return (
     <SelectedCoffeesCardContainer>
@@ -49,13 +56,15 @@ export function SelectedCoffeesCard() {
               <Trash size={16} weight="regular" />
               <span>Remover</span>
             </Button>
-            <p>{priceIsTrue(coffee.number)}</p>
+            <p>{priceIsTrue(coffee.number + price)}</p>
           </CoffeeSelected>
         ))}
         <TotalItems>
           <div>
             <p>Total de Itens</p>
-            <p>N/A</p>
+            {thereIsCoffeeOnTheList ? (
+              <p>R$ {valueOfAllCoffees.toFixed(2)}</p>
+            ) : null}
           </div>
           <div>
             <p>Entrega</p>
@@ -63,7 +72,9 @@ export function SelectedCoffeesCard() {
           </div>
           <div>
             <p>Total</p>
-            {/* <p>{PriceIsTrue && 'R$' + (price + 3.5).toFixed(2)}</p> */}
+            {thereIsCoffeeOnTheList ? (
+              <p>R$ {valueOfAllCoffees + 3.5}</p>
+            ) : null}
           </div>
           <NavLink to="/success" title="Success">
             <ConfirmOrderButton aria-label="confirmar">
