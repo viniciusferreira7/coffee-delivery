@@ -32,9 +32,11 @@ export function CoffeeCard({
   const [price, setPrice] = useState(number)
   const [disabled, setDisabled] = useState(false)
   const [buy, setBuy] = useState(false)
+  const [quantity, setQuantity] = useState(1)
 
   function getTheAmountOfCoffees(amount: number) {
     setPrice(amount * number)
+    setQuantity(amount)
   }
 
   function handleAddNewCoffee() {
@@ -45,7 +47,8 @@ export function CoffeeCard({
       tag3,
       name,
       description,
-      number: price,
+      number,
+      quantity,
     }
 
     setDisabled(true)
@@ -83,7 +86,10 @@ export function CoffeeCard({
           R$ <strong>{price.toFixed(2)}</strong>
         </p>
         <div>
-          <Counter getTheAmountOfCoffees={getTheAmountOfCoffees} />
+          <Counter
+            quantity={quantity}
+            getTheAmountOfCoffees={getTheAmountOfCoffees}
+          />
           <button
             disabled={disabled}
             onClick={handleAddNewCoffee}

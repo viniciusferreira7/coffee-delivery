@@ -14,6 +14,7 @@ interface CoffeeType {
   name: string
   description: string
   number: number
+  quantity: number
 }
 
 interface CoffeeContextType {

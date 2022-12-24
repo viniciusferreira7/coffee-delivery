@@ -8,9 +8,15 @@ interface CoffeeSelectedProps {
   image: string
   name: string
   number: number
+  quantity: number
 }
 
-export function CoffeeSelected({ image, name, number }: CoffeeSelectedProps) {
+export function CoffeeSelected({
+  image,
+  name,
+  number,
+  quantity,
+}: CoffeeSelectedProps) {
   const { coffeesState, removeCoffee } = useContext(CoffeeContext)
 
   const [price, setPrice] = useState(0)
@@ -20,13 +26,10 @@ export function CoffeeSelected({ image, name, number }: CoffeeSelectedProps) {
   }
 
   function priceIsTrue(value: number) {
-    return (
-      value &&
-      new Intl.NumberFormat('pt-br', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(value)
-    )
+    return new Intl.NumberFormat('pt-br', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(value)
   }
 
   function handleRemoveCoffee() {
@@ -41,7 +44,7 @@ export function CoffeeSelected({ image, name, number }: CoffeeSelectedProps) {
       <h4>{name}</h4>
       <div>
         <Counter
-          // amount={findPriceOrigin(name)}
+          quantity={quantity}
           getTheAmountOfCoffees={getTheAmountOfCoffees}
         />
       </div>
@@ -49,7 +52,7 @@ export function CoffeeSelected({ image, name, number }: CoffeeSelectedProps) {
         <Trash size={16} weight="regular" />
         <span>Remover</span>
       </Button>
-      <p>{priceIsTrue(number + price)}</p>
+      <p>{priceIsTrue(price)}</p>
     </CoffeeSelectedContainer>
   )
 }

@@ -8,6 +8,7 @@ export interface Coffee {
   name: string
   description: string
   number: number
+  quantity: number
 }
 
 interface CoffeesState {
