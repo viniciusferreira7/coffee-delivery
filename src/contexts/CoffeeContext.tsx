@@ -15,6 +15,7 @@ interface CoffeeType {
   description: string
   number: number
   quantity: number
+  added: boolean
 }
 
 interface CoffeeContextType {

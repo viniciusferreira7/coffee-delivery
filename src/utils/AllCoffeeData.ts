@@ -22,6 +22,7 @@ interface CoffeeType {
   description: string
   number: number
   quantity: number
+  added: boolean
 }
 
 export const AllCoffeeData: CoffeeType[] = [
@@ -32,6 +33,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'O tradicional café feito com água quente e grãos moídos',
     number: 9.9,
     quantity: 1,
+    added: false,
   },
   {
     image: AmericanExpress,
@@ -40,6 +42,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Expresso diluído, menos intenso que o tradicional',
     number: 9.8,
     quantity: 1,
+    added: false,
   },
   {
     image: CreamyEspresso,
@@ -48,6 +51,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Café expresso tradicional com espuma cremosa',
     number: 10,
     quantity: 1,
+    added: false,
   },
   {
     image: IcedEspresso,
@@ -57,6 +61,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Bebida preparada com café expresso e cubos de gelo',
     number: 8.5,
     quantity: 1,
+    added: false,
   },
   {
     image: CoffeeWithMilk,
@@ -66,6 +71,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     number: 10.2,
     quantity: 1,
+    added: false,
   },
   {
     image: Latte,
@@ -76,6 +82,7 @@ export const AllCoffeeData: CoffeeType[] = [
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     number: 12.25,
     quantity: 1,
+    added: false,
   },
   {
     image: Capuccino,
@@ -86,6 +93,7 @@ export const AllCoffeeData: CoffeeType[] = [
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     number: 11,
     quantity: 1,
+    added: false,
   },
   {
     image: Macchiato,
@@ -96,6 +104,7 @@ export const AllCoffeeData: CoffeeType[] = [
       'Café expresso misturado com um pouco de leite quente e espuma',
     number: 9.75,
     quantity: 1,
+    added: false,
   },
   {
     image: Moccacino,
@@ -105,6 +114,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     number: 12.75,
     quantity: 1,
+    added: false,
   },
   {
     image: HotChocolate,
@@ -114,6 +124,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     number: 9,
     quantity: 1,
+    added: false,
   },
   {
     image: Cubano,
@@ -125,6 +136,7 @@ export const AllCoffeeData: CoffeeType[] = [
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     number: 10.2,
     quantity: 1,
+    added: false,
   },
   {
     image: Havaiano,
@@ -133,6 +145,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Bebida adocicada preparada com café e leite de coco',
     number: 13,
     quantity: 1,
+    added: false,
   },
   {
     image: Arabe,
@@ -141,6 +154,7 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     number: 9.6,
     quantity: 1,
+    added: false,
   },
   {
     image: Irlandes,
@@ -150,5 +164,6 @@ export const AllCoffeeData: CoffeeType[] = [
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     number: 11.45,
     quantity: 1,
+    added: false,
   },
 ]

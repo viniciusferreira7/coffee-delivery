@@ -40,7 +40,7 @@ export const CoffeeCardContainer = styled.div`
   }
 `
 
-export const TagsCoffess = styled.div`
+export const TagsCoffees = styled.div`
   display: flex;
   gap: 0.25rem;
   justify-content: center;

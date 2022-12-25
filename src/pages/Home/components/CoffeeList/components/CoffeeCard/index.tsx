@@ -1,10 +1,10 @@
-import { Buy, CoffeeCardContainer, TagsCoffess } from './styles'
+import { Buy, CoffeeCardContainer, TagsCoffees } from './styles'
 
 import { Counter } from '../../../../../../components/Counter'
 
 import { ShoppingCartSimple } from 'phosphor-react'
 
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import { CoffeeContext } from '../../../../../../contexts/CoffeeContext'
 import { SuccessMessage } from './components/SuccessMessage'
 
@@ -27,17 +27,11 @@ export function CoffeeCard({
   description,
   number,
 }: CoffeeCardProps) {
-  const { addNewCoffee } = useContext(CoffeeContext)
+  const { coffeesState, addNewCoffee } = useContext(CoffeeContext)
 
   const [price, setPrice] = useState(number)
   const [disabled, setDisabled] = useState(false)
-  const [buy, setBuy] = useState(false)
   const [quantity, setQuantity] = useState(1)
-
-  function getTheAmountOfCoffees(amount: number) {
-    setPrice(amount * number)
-    setQuantity(amount)
-  }
 
   function handleAddNewCoffee() {
     const newCoffee = {
@@ -49,33 +43,48 @@ export function CoffeeCard({
       description,
       number,
       quantity,
+      added: true,
     }
 
-    setDisabled(true)
-
     addNewCoffee(newCoffee)
+  }
 
-    setBuy(true)
+  const currentCoffee = coffeesState.coffees.find(
+    (coffee) => coffee.name === name,
+  )
+
+  const currentCafeInformation = useMemo(
+    () => ({
+      added: currentCoffee ? currentCoffee.added : false,
+      quantity: currentCoffee ? currentCoffee.quantity : 1,
+      price: currentCoffee ? currentCoffee.number : number,
+    }),
+    [currentCoffee, number],
+  )
+
+  function getTheAmountOfCoffees(amount: number) {
+    setPrice(amount * currentCafeInformation.price)
+    setQuantity(amount)
   }
 
   useEffect(() => {
-    if (price <= 0) {
+    if (price <= 0 || currentCafeInformation.added) {
       setDisabled(true)
     } else {
       setDisabled(false)
     }
-  }, [price])
+  }, [price, currentCafeInformation])
 
   return (
     <CoffeeCardContainer>
-      <SuccessMessage buy={buy} />
+      <SuccessMessage added={currentCafeInformation.added} />
       <header>
         <img src={image} alt={`Xícara de café ${name}`} />
-        <TagsCoffess>
+        <TagsCoffees>
           <h4>{tag1}</h4>
           {tag2 && <h4>{tag2}</h4>}
           {tag3 && <h4>{tag3}</h4>}
-        </TagsCoffess>
+        </TagsCoffees>
       </header>
       <main>
         <h2>{name}</h2>
@@ -87,7 +96,7 @@ export function CoffeeCard({
         </p>
         <div>
           <Counter
-            quantity={quantity}
+            quantity={currentCafeInformation.quantity}
             getTheAmountOfCoffees={getTheAmountOfCoffees}
           />
           <button

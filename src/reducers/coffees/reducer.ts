@@ -9,6 +9,7 @@ export interface Coffee {
   description: string
   number: number
   quantity: number
+  added: boolean
 }
 
 interface CoffeesState {
@@ -24,16 +25,8 @@ interface Action {
 
 export function coffeesReducer(state: CoffeesState, action: Action) {
   switch (action.type) {
-    case ActionTypes.ADD_COFFEE: {
-      const repeated = state.coffees.find(
-        (coffee) => coffee.number === action.payload.coffee.number,
-      )
-      if (!repeated) {
-        return { ...state, coffees: [...state.coffees, action.payload.coffee] }
-      } else {
-        return { ...state, coffees: [...state.coffees] }
-      }
-    }
+    case ActionTypes.ADD_COFFEE:
+      return { ...state, coffees: [...state.coffees, action.payload.coffee] }
     case ActionTypes.REMOVE_COFFEE:
       return {
         ...state,

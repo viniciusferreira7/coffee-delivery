@@ -3,13 +3,13 @@ import { SuccessMessageContainer } from './styles'
 import { useSpring } from '@react-spring/web'
 
 interface SuccessMessageProps {
-  buy: boolean
+  added: boolean
 }
 
-export function SuccessMessage({ buy }: SuccessMessageProps) {
+export function SuccessMessage({ added }: SuccessMessageProps) {
   const props = useSpring({
-    opacity: buy ? 0.6 : 0,
-    maxWidth: buy ? 500 : 0,
+    opacity: added ? 0.6 : 0,
+    maxWidth: added ? 500 : 0,
   })
 
   return (
