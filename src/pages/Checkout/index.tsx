@@ -2,7 +2,7 @@ import { ShoppingCart } from 'phosphor-react'
 import { useContext } from 'react'
 import { CoffeeContext } from '../../contexts/CoffeeContext'
 import OrderForm from './components/OrderForm'
-import { SelectedCoffeesCard } from './components/SelectedCoffeesCard'
+import { CartInfo } from './components/CartInfo'
 import { CheckoutContainer, EmptyCart } from './styles'
 
 export function Checkout() {
@@ -15,7 +15,7 @@ export function Checkout() {
       {thereIsItemInCart ? (
         <>
           <OrderForm />
-          <SelectedCoffeesCard />
+          <CartInfo />
         </>
       ) : (
         <EmptyCart>

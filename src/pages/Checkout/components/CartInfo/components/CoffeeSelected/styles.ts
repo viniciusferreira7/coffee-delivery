@@ -34,6 +34,10 @@ export const CoffeeSelectedContainer = styled.div`
     font-weight: 700;
   }
 
+  & + & {
+    padding-top: 1.5rem;
+  }
+
   @media screen and (max-width: 768px) {
     p {
       margin-left: 1.5rem;

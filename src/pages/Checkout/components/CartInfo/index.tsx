@@ -2,14 +2,14 @@ import { useContext } from 'react'
 import {
   CardContainer,
   ConfirmOrderButton,
-  SelectedCoffeesCardContainer,
+  CartInfoContainer,
   TotalItems,
 } from './styles'
 import { NavLink } from 'react-router-dom'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext'
 import { CoffeeSelected } from './components/CoffeeSelected'
 
-export function SelectedCoffeesCard() {
+export function CartInfo() {
   const { coffeesState } = useContext(CoffeeContext)
 
   function convertNumberToReal(number: number) {
@@ -26,7 +26,7 @@ export function SelectedCoffeesCard() {
   }, 0)
 
   return (
-    <SelectedCoffeesCardContainer>
+    <CartInfoContainer>
       <h2>Cafés selecionados</h2>
       <CardContainer>
         {coffeesState.coffees.map((coffee) => (
@@ -56,6 +56,6 @@ export function SelectedCoffeesCard() {
           </NavLink>
         </TotalItems>
       </CardContainer>
-    </SelectedCoffeesCardContainer>
+    </CartInfoContainer>
   )
 }

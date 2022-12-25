@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SelectedCoffeesCardContainer = styled.div`
+export const CartInfoContainer = styled.div`
   h2 {
     font-size: 1.125rem;
     margin-bottom: 0.93rem;
