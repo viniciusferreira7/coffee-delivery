@@ -46,6 +46,16 @@ export const IntroSectionContainer = styled.section<IntroSectionProps>`
 
     padding: 1rem 0.25rem 6.25rem;
 
+    & > div > header {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+    }
+
     & > img {
       width: 20rem;
     }

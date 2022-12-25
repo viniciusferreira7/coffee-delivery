@@ -6,8 +6,9 @@ export const CheckoutContainer = styled.form`
 
   max-width: 70rem;
   width: 100%;
-
   margin: auto;
+  margin-top: 9rem;
+  /* padding-top: 6.5rem; */
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
