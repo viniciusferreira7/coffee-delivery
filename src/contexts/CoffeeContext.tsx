@@ -43,11 +43,11 @@ export function CoffeeContextProvider({
   }
 
   function removeCoffee(name: string) {
-    const coffee = coffeesState.coffees.filter((coffee) => coffee.name === name)
+    const coffee = coffeesState.coffees.find((coffee) => coffee.name === name)
 
-    console.log(coffee)
-
-    // dispatch(removeCoffeeAction(coffee))
+    if (coffee) {
+      dispatch(removeCoffeeAction(coffee))
+    }
   }
 
   return (

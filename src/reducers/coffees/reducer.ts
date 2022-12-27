@@ -31,7 +31,7 @@ export function coffeesReducer(state: CoffeesState, action: Action) {
       return {
         ...state,
         coffees: state.coffees.filter(
-          (coffee) => action.payload.coffee !== coffee,
+          (coffee) => coffee !== action.payload.coffee,
         ),
       }
 

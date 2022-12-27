@@ -17,7 +17,7 @@ export function CoffeeSelected({
   number,
   quantity,
 }: CoffeeSelectedProps) {
-  const { coffeesState, removeCoffee } = useContext(CoffeeContext)
+  const { removeCoffee } = useContext(CoffeeContext)
 
   const [price, setPrice] = useState(0)
 
@@ -33,8 +33,6 @@ export function CoffeeSelected({
   }
 
   function handleRemoveCoffee() {
-    const coffee = coffeesState.coffees.filter((coffee) => coffee.name === name)
-    console.log(coffee)
     removeCoffee(name)
   }
 
