@@ -2,7 +2,7 @@ import { Trash } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import { Counter } from '../../../../../../components/Counter'
 import { CoffeeContext } from '../../../../../../contexts/CoffeeContext'
-import { Button, CoffeeSelectedContainer } from './styles'
+import { Button, CoffeeAddedContainer } from './styles'
 
 interface CoffeeSelectedProps {
   image: string
@@ -11,7 +11,7 @@ interface CoffeeSelectedProps {
   quantity: number
 }
 
-export function CoffeeSelected({
+export function CoffeeAdded({
   image,
   name,
   number,
@@ -19,10 +19,10 @@ export function CoffeeSelected({
 }: CoffeeSelectedProps) {
   const { removeCoffee } = useContext(CoffeeContext)
 
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState(number)
 
-  function getTheAmountOfCoffees(amount: number) {
-    setPrice(amount * number)
+  function getTheAmountOfEachCoffees(amount: number) {
+    setPrice(amount * (number / quantity))
   }
 
   function priceIsTrue(value: number) {
@@ -37,13 +37,13 @@ export function CoffeeSelected({
   }
 
   return (
-    <CoffeeSelectedContainer key={number}>
+    <CoffeeAddedContainer key={number}>
       <img src={image} alt={name} />
       <h4>{name}</h4>
       <div>
         <Counter
           quantity={quantity}
-          getTheAmountOfCoffees={getTheAmountOfCoffees}
+          getTheAmountOfEachCoffees={getTheAmountOfEachCoffees}
         />
       </div>
       <Button onClick={handleRemoveCoffee} type="button" aria-label="remover">
@@ -51,6 +51,6 @@ export function CoffeeSelected({
         <span>Remover</span>
       </Button>
       <p>{priceIsTrue(price)}</p>
-    </CoffeeSelectedContainer>
+    </CoffeeAddedContainer>
   )
 }

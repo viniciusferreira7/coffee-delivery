@@ -41,7 +41,7 @@ export function CoffeeCard({
       tag3,
       name,
       description,
-      number,
+      number: price,
       quantity,
       added: true,
     }
@@ -57,13 +57,12 @@ export function CoffeeCard({
     () => ({
       added: currentCoffee ? currentCoffee.added : false,
       quantity: currentCoffee ? currentCoffee.quantity : 1,
-      price: currentCoffee ? currentCoffee.number : number,
     }),
-    [currentCoffee, number],
+    [currentCoffee],
   )
 
-  function getTheAmountOfCoffees(amount: number) {
-    setPrice(amount * currentCafeInformation.price)
+  function getTheAmountOfEachCoffees(amount: number) {
+    setPrice(amount * number)
     setQuantity(amount)
   }
 
@@ -97,7 +96,7 @@ export function CoffeeCard({
         <div>
           <Counter
             quantity={currentCafeInformation.quantity}
-            getTheAmountOfCoffees={getTheAmountOfCoffees}
+            getTheAmountOfEachCoffees={getTheAmountOfEachCoffees}
           />
           <button
             disabled={disabled}

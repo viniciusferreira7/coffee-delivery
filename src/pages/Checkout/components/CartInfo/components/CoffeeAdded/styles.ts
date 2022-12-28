@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CoffeeSelectedContainer = styled.div`
+export const CoffeeAddedContainer = styled.div`
   display: grid;
   gap: 0.5rem;
   grid-template-areas:

@@ -7,7 +7,7 @@ import {
 } from './styles'
 import { NavLink } from 'react-router-dom'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext'
-import { CoffeeSelected } from './components/CoffeeSelected'
+import { CoffeeAdded } from './components/CoffeeAdded'
 
 export function CartInfo() {
   const { coffeesState } = useContext(CoffeeContext)
@@ -21,7 +21,7 @@ export function CartInfo() {
 
   const thereIsCoffeeOnTheList = coffeesState.coffees.length >= 1
 
-  const valueOfAllCoffees = coffeesState.coffees.reduce((acc, coffee) => {
+  const totalValueOfAllCoffee = coffeesState.coffees.reduce((acc, coffee) => {
     return acc + coffee.number
   }, 0)
 
@@ -30,13 +30,13 @@ export function CartInfo() {
       <h2>Cafés selecionados</h2>
       <CardContainer>
         {coffeesState.coffees.map((coffee) => (
-          <CoffeeSelected key={coffee.name} {...coffee} />
+          <CoffeeAdded key={coffee.name} {...coffee} />
         ))}
         <TotalItems>
           <div>
             <p>Total de Itens</p>
             {thereIsCoffeeOnTheList ? (
-              <p>{convertNumberToReal(valueOfAllCoffees)}</p>
+              <p>{convertNumberToReal(totalValueOfAllCoffee)}</p>
             ) : null}
           </div>
           <div>
@@ -46,7 +46,7 @@ export function CartInfo() {
           <div>
             <p>Total</p>
             {thereIsCoffeeOnTheList ? (
-              <p>{convertNumberToReal(valueOfAllCoffees) + 3.5}</p>
+              <p>{convertNumberToReal(totalValueOfAllCoffee + 3.5)}</p>
             ) : null}
           </div>
           <NavLink to="/success" title="Success">
