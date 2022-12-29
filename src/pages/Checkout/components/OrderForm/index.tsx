@@ -38,7 +38,7 @@ export default function OrderForm() {
             <input {...register('rua')} type="text" placeholder="Rua" />
           </label>
           <label htmlFor="Numero">
-            <input {...register('numero')} type="number" placeholder="Numero" />
+            <input {...register('numero')} type="text" placeholder="Numero" />
           </label>
           <label htmlFor="Complemento">
             <span>Opcional</span>
