@@ -6,6 +6,9 @@ import {
 import { coffeesReducer } from '../reducers/coffees/reducer'
 import { AllCoffeeData } from '../utils/AllCoffeeData'
 
+import TraditionalExpress from '../assets/coffees/traditional-express.svg'
+import AmericanExpress from '../assets/coffees/american-express.svg'
+
 interface CoffeeType {
   image: string
   tag1: string
@@ -35,7 +38,26 @@ export function CoffeeContextProvider({
   children,
 }: CoffeeContextProviderProps) {
   const [coffeesState, dispatch] = useReducer(coffeesReducer, {
-    coffees: [],
+    coffees: [
+      {
+        image: TraditionalExpress,
+        tag1: 'Tradicional',
+        name: 'Expresso tradicional',
+        description: 'O tradicional café feito com água quente e grãos moídos',
+        number: 9.9,
+        quantity: 1,
+        added: true,
+      },
+      {
+        image: AmericanExpress,
+        tag1: 'Tradicional',
+        name: 'Expresso Americano',
+        description: 'Expresso diluído, menos intenso que o tradicional',
+        number: 9.8,
+        quantity: 1,
+        added: true,
+      },
+    ],
   })
 
   function addNewCoffee(newCoffee: CoffeeType) {

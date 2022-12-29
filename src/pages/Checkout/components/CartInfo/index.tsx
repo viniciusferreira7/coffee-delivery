@@ -49,11 +49,11 @@ export function CartInfo() {
               <p>{convertNumberToReal(totalValueOfAllCoffee + 3.5)}</p>
             ) : null}
           </div>
-          <NavLink to="/success" title="Success">
-            <ConfirmOrderButton aria-label="confirmar">
-              Confirmar pedido
-            </ConfirmOrderButton>
-          </NavLink>
+          {/* <NavLink to="/success" title="Success"> */}
+          <ConfirmOrderButton type="submit" aria-label="confirmar">
+            Confirmar pedido
+          </ConfirmOrderButton>
+          {/* </NavLink> */}
         </TotalItems>
       </CardContainer>
     </CartInfoContainer>

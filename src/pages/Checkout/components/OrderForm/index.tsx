@@ -5,6 +5,9 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
+
+import { useFormContext } from 'react-hook-form'
+
 import {
   ArticleContainer,
   AddressCard,
@@ -16,6 +19,8 @@ import {
 } from './styles'
 
 export default function OrderForm() {
+  const { register } = useFormContext()
+
   return (
     <OrderFormContainer>
       <h2>Complete seu pedido</h2>
@@ -26,28 +31,31 @@ export default function OrderForm() {
           <p>Informe o endereço onde deseja receber seu pedido</p>
         </ArticleContainer>
         <InputGroup>
-          {/* Arrumar os espaçamentos das labels */}
           <label htmlFor="CEP">
-            <input name="CEP" type="text" placeholder="CEP" />
+            <input {...register('cep')} type="text" placeholder="CEP" />
           </label>
           <label htmlFor="Rua">
-            <input name="Rua" type="text" placeholder="Rua" />
+            <input {...register('rua')} type="text" placeholder="Rua" />
           </label>
           <label htmlFor="Numero">
-            <input name="Numero" type="number" placeholder="Numero" />
+            <input {...register('numero')} type="number" placeholder="Numero" />
           </label>
           <label htmlFor="Complemento">
             <span>Opcional</span>
-            <input name="Complemento" type="text" placeholder="Complemento" />
+            <input
+              {...register('complemento')}
+              type="text"
+              placeholder="Complemento"
+            />
           </label>
           <label htmlFor="Bairro">
-            <input name="Bairro" type="text" placeholder="Bairro" />
+            <input {...register('bairro')} type="text" placeholder="Bairro" />
           </label>
           <label htmlFor="Cidade">
-            <input name="Cidade" type="text" placeholder="Cidade" />
+            <input {...register('cidade')} type="text" placeholder="Cidade" />
           </label>
           <label htmlFor="UF">
-            <input name="UF" type="text" placeholder="UF" />
+            <input {...register('uf')} type="text" placeholder="UF" />
           </label>
         </InputGroup>
       </AddressCard>
