@@ -42,7 +42,7 @@ export const ArticleContainer = styled.article`
 export const AddressCard = styled.div`
   max-width: 40rem;
   width: 100%;
-  height: 23.25rem;
+  min-height: 23.25rem;
   padding: 2.5rem;
   border-radius: 6px;
 
@@ -79,22 +79,27 @@ export const InputGroup = styled.div`
         border-color: ${(props) => props.theme['yellow-dark']};
       }
     }
+
+    span {
+      color: ${(props) => props.theme['yellow-dark']};
+      font-size: 0.75rem;
+    }
   }
 
-  label[for='CEP'] {
+  label[for='cep'] {
     grid-area: cep;
   }
 
-  label[for='Rua'] {
+  label[for='rua'] {
     grid-area: rua;
     max-width: 35rem;
   }
 
-  label[for='Numero'] {
+  label[for='numero'] {
     grid-area: numero;
   }
 
-  label[for='Complemento'] {
+  label[for='complemento'] {
     grid-area: complemento;
     max-width: 21.75rem;
     position: relative;
@@ -109,23 +114,23 @@ export const InputGroup = styled.div`
     }
   }
 
-  label[for='Bairro'] {
+  label[for='bairro'] {
     grid-area: bairro;
   }
 
-  label[for='Cidade'] {
+  label[for='cidade'] {
     grid-area: cidade;
     max-width: 17.25rem;
   }
 
-  label[for='UF'] {
+  label[for='uf'] {
     grid-area: uf;
     max-width: 3.75rem;
   }
 `
 
 export const PaymentCard = styled(AddressCard)`
-  height: 12.93rem;
+  min-height: 12.93rem;
   margin-top: 0.75rem;
 `
 export const ButtonGroup = styled(RadioGroup.Root)`

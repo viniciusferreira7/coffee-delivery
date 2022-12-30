@@ -1,6 +1,6 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { ShoppingCart } from 'phosphor-react'
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 
@@ -10,24 +10,28 @@ import { CartInfo } from './components/CartInfo'
 
 import { CheckoutContainer, EmptyCart } from './styles'
 
-const formCheckoutSchema = z.object({
-  cep: z.string({ required_error: 'Cep é obrigatório' }),
-  rua: z.string({ required_error: 'Rua é obrigatório' }),
-  numero: z.string({ required_error: 'Numero é obrigatório' }),
-  complemento: z.string(),
-  bairro: z.string({ required_error: 'Bairro é obrigatório' }),
-  cidade: z.string({ required_error: 'Cidade é obrigatório' }),
-  uf: z
-    .string({ required_error: 'Cep é obrigatório' })
-    .length(2, { message: 'Deve ter somente 2 caracteres' }),
-})
+const formCheckoutSchema = z
+  .object({
+    cep: z
+      .string()
+      .length(9, { message: 'Este campo deve conter 8 caracteres' }),
+    rua: z.string().min(1, { message: 'Este campo é obrigatório' }),
+    numero: z.string().min(1, { message: 'Este campo é obrigatório' }),
+    complemento: z.string(),
+    bairro: z.string().min(1, { message: 'Este campo é obrigatório' }),
+    cidade: z.string().min(1, { message: 'Este campo é obrigatório' }),
+    uf: z
+      .string({ invalid_type_error: 'Deve conter apenas letras' })
+      .length(2, { message: 'Deve ter 2 caracteres' }),
+  })
+  .required()
 
-type formCheckoutInput = z.infer<typeof formCheckoutSchema>
+type FormCheckoutInput = z.infer<typeof formCheckoutSchema>
 
 export function Checkout() {
   const { coffeesState } = useContext(CoffeeContext)
 
-  const method = useForm<formCheckoutInput>({
+  const method = useForm<FormCheckoutInput>({
     resolver: zodResolver(formCheckoutSchema),
   })
   const { handleSubmit, formState } = method
@@ -35,13 +39,11 @@ export function Checkout() {
   const thereIsItemInCart = coffeesState.coffees.length >= 1
 
   // Pensar em outro nome para  função
-  function handleForm(
-    data: formCheckoutInput,
-  ): SubmitHandler<formCheckoutInput> {
+  function handleForm(data: FormCheckoutInput) {}
+
+  useEffect(() => {
     console.log(formState.errors)
-    console.log(data)
-    return null
-  }
+  }, [formState])
 
   return (
     <FormProvider {...method}>

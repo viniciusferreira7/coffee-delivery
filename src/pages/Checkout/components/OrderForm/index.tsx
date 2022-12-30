@@ -7,6 +7,7 @@ import {
 } from 'phosphor-react'
 
 import { useFormContext } from 'react-hook-form'
+import { ErrorMessage } from '@hookform/error-message'
 
 import {
   ArticleContainer,
@@ -19,7 +20,10 @@ import {
 } from './styles'
 
 export default function OrderForm() {
-  const { register } = useFormContext()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext()
 
   return (
     <OrderFormContainer>
@@ -31,31 +35,66 @@ export default function OrderForm() {
           <p>Informe o endereço onde deseja receber seu pedido</p>
         </ArticleContainer>
         <InputGroup>
-          <label htmlFor="CEP">
+          <label htmlFor="cep">
             <input {...register('cep')} type="text" placeholder="CEP" />
+            <ErrorMessage
+              name="cep"
+              errors={errors}
+              render={({ message }) => <span>{message}</span>}
+            />
           </label>
-          <label htmlFor="Rua">
+          <label htmlFor="rua">
             <input {...register('rua')} type="text" placeholder="Rua" />
+            <ErrorMessage
+              name="rua"
+              errors={errors}
+              render={({ message }) => <span>{message}</span>}
+            />
           </label>
-          <label htmlFor="Numero">
-            <input {...register('numero')} type="text" placeholder="Numero" />
+          <label htmlFor="numero">
+            <input {...register('numero')} type="number" placeholder="Numero" />
+            <ErrorMessage
+              name="numero"
+              errors={errors}
+              render={({ message }) => <span>{message}</span>}
+            />
           </label>
-          <label htmlFor="Complemento">
+          <label htmlFor="complemento">
             <span>Opcional</span>
             <input
               {...register('complemento')}
               type="text"
               placeholder="Complemento"
             />
+            <ErrorMessage
+              name="complemento"
+              errors={errors}
+              render={({ message }) => <span>{message}</span>}
+            />
           </label>
-          <label htmlFor="Bairro">
+          <label htmlFor="bairro">
             <input {...register('bairro')} type="text" placeholder="Bairro" />
+            <ErrorMessage
+              name="bairro"
+              errors={errors}
+              render={({ message }) => <span>{message}</span>}
+            />
           </label>
-          <label htmlFor="Cidade">
+          <label htmlFor="cidade">
             <input {...register('cidade')} type="text" placeholder="Cidade" />
+            <ErrorMessage
+              name="cidade"
+              errors={errors}
+              render={({ message }) => <span>{message}</span>}
+            />
           </label>
-          <label htmlFor="UF">
+          <label htmlFor="uf">
             <input {...register('uf')} type="text" placeholder="UF" />
+            <ErrorMessage
+              name="uf"
+              errors={errors}
+              render={({ message }) => <span>{message}</span>}
+            />
           </label>
         </InputGroup>
       </AddressCard>
@@ -67,7 +106,7 @@ export default function OrderForm() {
             O pagamento é feito na entrega. Escolha a forma que deseja pagar
           </p>
         </ArticleContainer>
-        <ButtonGroup required>
+        <ButtonGroup>
           <Button value="crédito">
             <CreditCard size={16} weight="regular" />
 
