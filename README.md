@@ -19,6 +19,8 @@
 
 #### `React-hook-form`
 
+#### `React-input-mask`
+
 #### `@hookform/resolvers`
 
 #### `@hookform/error-message`
