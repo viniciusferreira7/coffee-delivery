@@ -12,7 +12,9 @@ import { CheckoutContainer, EmptyCart } from './styles'
 
 const formCheckoutSchema = z.object({
   cep: z
-    .string()
+    .string({
+      required_error: 'Este campo é obrigatório',
+    })
     .min(1, { message: 'Este campo é obrigatório' })
     .max(9, { message: 'Este campo deve conter 8 caracteres' })
     .regex(/[0-9]{5}[-][0-9]{3}/, { message: 'CEP inválido' }),
@@ -27,7 +29,7 @@ const formCheckoutSchema = z.object({
   uf: z
     .string({ invalid_type_error: 'Deve conter apenas letras' })
     .min(1, { message: 'Este campo é obrigatório' })
-    .max(2, { message: 'Deve ter apenas 2 caracteres' })
+    .max(2, { message: 'Deve ter apenas 2 letras maiúsculas ' })
     .regex(
       /RO|AC|AM|RR|PA|AP|TO|MA|PI|CE|RN|PB|PE|AL|SE|BA|MG|ES|RJ|SP|PR|SC|RS|MS|MT|GO|DF/g,
       { message: 'UF inválido' },

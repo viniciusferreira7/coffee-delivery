@@ -15,11 +15,13 @@
     "@hookform/resolvers": "^2.9.10",
     "@radix-ui/react-radio-group": "^1.1.0",
     "@react-spring/web": "^9.6.1",
+    "@types/react-input-mask": "^3.0.2",
     "commitizen": "^4.2.5",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
+    "react-input-mask": "^2.0.4",
     "react-router-dom": "^6.4.2",
     "styled-components": "^5.3.6",
     "zod": "^3.19.1"

@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   background: rgba(250, 250, 250, 0.95);
-  z-index: 9999;
+  z-index: 10;
 
   width: 100%;
   max-width: 90rem;

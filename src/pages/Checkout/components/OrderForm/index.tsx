@@ -6,8 +6,9 @@ import {
   Money,
 } from 'phosphor-react'
 
-import { useFormContext } from 'react-hook-form'
+import { Controller, useFormContext } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
+import InputMask from 'react-input-mask'
 
 import {
   ArticleContainer,
@@ -22,6 +23,7 @@ import {
 export default function OrderForm() {
   const {
     register,
+    control,
     formState: { errors },
   } = useFormContext()
 
@@ -36,7 +38,11 @@ export default function OrderForm() {
         </ArticleContainer>
         <InputGroup>
           <label htmlFor="cep">
-            <input {...register('cep')} type="text" placeholder="CEP" />
+            <Controller
+              {...register('cep')}
+              control={control}
+              render={() => <InputMask mask="99999-999" placeholder="CEP" />}
+            />
             <ErrorMessage
               name="cep"
               errors={errors}
