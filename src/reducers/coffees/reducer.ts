@@ -12,8 +12,19 @@ export interface Coffee {
   added: boolean
 }
 
+interface InputValues {
+  cep: string
+  rua: string
+  numero: string
+  complemento: string
+  bairro: string
+  cidade: string
+  uf: string
+}
+
 interface CoffeesState {
   coffees: Coffee[]
+  form: InputValues
 }
 
 interface Action {

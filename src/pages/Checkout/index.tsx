@@ -44,20 +44,17 @@ export function Checkout() {
   const method = useForm<FormCheckoutInput>({
     resolver: zodResolver(formCheckoutSchema),
   })
-  const { handleSubmit, formState } = method
+  const { handleSubmit } = method
 
   const thereIsItemInCart = coffeesState.coffees.length >= 1
 
-  // Pensar em outro nome para  função
-  function handleForm(data: FormCheckoutInput) {}
-
-  useEffect(() => {
-    console.log(formState.errors)
-  }, [formState])
+  function handleCheckoutForm(data: FormCheckoutInput) {
+    console.log(data)
+  }
 
   return (
     <FormProvider {...method}>
-      <CheckoutContainer onSubmit={handleSubmit(handleForm)}>
+      <CheckoutContainer onSubmit={handleSubmit(handleCheckoutForm)}>
         {thereIsItemInCart ? (
           <>
             <OrderForm />

@@ -21,9 +21,22 @@ interface CoffeeType {
   added: boolean
 }
 
+interface InputValues {
+  cep: string
+  rua: string
+  numero: string
+  complemento: string
+  bairro: string
+  cidade: string
+  uf: string
+}
+
 interface CoffeeContextType {
   AllCoffeeData: CoffeeType[]
-  coffeesState: { coffees: CoffeeType[] }
+  coffeesState: {
+    coffees: CoffeeType[]
+    form: InputValues
+  }
   addNewCoffee: (newCoffee: CoffeeType) => void
   removeCoffee: (name: string) => void
 }
@@ -58,6 +71,15 @@ export function CoffeeContextProvider({
         added: true,
       },
     ],
+    form: {
+      cep: '',
+      rua: '',
+      numero: '',
+      complemento: '',
+      bairro: '',
+      cidade: '',
+      uf: '',
+    },
   })
 
   function addNewCoffee(newCoffee: CoffeeType) {

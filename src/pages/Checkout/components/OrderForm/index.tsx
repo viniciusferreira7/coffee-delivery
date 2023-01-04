@@ -39,9 +39,16 @@ export default function OrderForm() {
         <InputGroup>
           <label htmlFor="cep">
             <Controller
-              {...register('cep')}
+              name="cep"
               control={control}
-              render={() => <InputMask mask="99999-999" placeholder="CEP" />}
+              render={({ field: { onChange, value } }) => (
+                <InputMask
+                  mask="99999-999"
+                  placeholder="CEP"
+                  value={value}
+                  onChange={onChange}
+                />
+              )}
             />
             <ErrorMessage
               name="cep"
