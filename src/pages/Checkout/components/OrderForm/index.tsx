@@ -52,7 +52,7 @@ export default function OrderForm() {
             />
           </label>
           <label htmlFor="numero">
-            <input {...register('numero')} type="number" placeholder="Numero" />
+            <input {...register('numero')} type="text" placeholder="Numero" />
             <ErrorMessage
               name="numero"
               errors={errors}

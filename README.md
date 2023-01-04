@@ -19,6 +19,10 @@
 
 #### `React-hook-form`
 
+#### `@hookform/resolvers`
+
+#### `@hookform/error-message`
+
 #### `Zod`
 
 #### `Radix UI`
