@@ -40,7 +40,7 @@ export function CartInfo() {
           </div>
           <div>
             <p>Entrega</p>
-            <p>R$ 3.50</p>
+            <p>R$ 3,50</p>
           </div>
           <div>
             <p>Total</p>

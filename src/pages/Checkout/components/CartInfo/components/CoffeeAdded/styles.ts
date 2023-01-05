@@ -40,7 +40,8 @@ export const CoffeeAddedContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     p {
-      margin-left: 1.5rem;
+      margin-left: 0.2rem;
+      font-size: 0.8rem;
     }
   }
 `
