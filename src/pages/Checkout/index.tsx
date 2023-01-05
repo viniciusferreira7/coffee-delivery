@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { ShoppingCart } from 'phosphor-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -9,6 +9,7 @@ import OrderForm from './components/OrderForm'
 import { CartInfo } from './components/CartInfo'
 
 import { CheckoutContainer, EmptyCart } from './styles'
+import { useNavigate } from 'react-router-dom'
 
 const formCheckoutSchema = z.object({
   cep: z
@@ -18,14 +19,14 @@ const formCheckoutSchema = z.object({
     .min(1, { message: 'Este campo é obrigatório' })
     .max(9, { message: 'Este campo deve conter 8 caracteres' })
     .regex(/[0-9]{5}[-][0-9]{3}/, { message: 'CEP inválido' }),
-  rua: z.string().min(1, { message: 'Este campo é obrigatório' }),
-  numero: z
+  street: z.string().min(1, { message: 'Este campo é obrigatório' }),
+  number: z
     .string()
     .min(1, { message: 'Este campo é obrigatório' })
     .regex(/\d+$/gm, { message: 'Deve conter apenas números' }),
-  complemento: z.string(),
-  bairro: z.string().min(1, { message: 'Este campo é obrigatório' }),
-  cidade: z.string().min(1, { message: 'Este campo é obrigatório' }),
+  complement: z.string(),
+  district: z.string().min(1, { message: 'Este campo é obrigatório' }),
+  city: z.string().min(1, { message: 'Este campo é obrigatório' }),
   uf: z
     .string({ invalid_type_error: 'Deve conter apenas letras' })
     .min(1, { message: 'Este campo é obrigatório' })
@@ -38,7 +39,9 @@ const formCheckoutSchema = z.object({
     .string({
       required_error: 'Este campo é obrigatório',
     })
-    .regex(/crédito|débito|dinheiro/i, { message: 'Opção inválida' }),
+    .regex(/crédito|débito|dinheiro/i, {
+      message: 'Escolha um tipo de pagamento',
+    }),
 })
 
 type FormCheckoutInput = z.infer<typeof formCheckoutSchema>
@@ -46,11 +49,12 @@ type FormCheckoutInput = z.infer<typeof formCheckoutSchema>
 export function Checkout() {
   const { coffeesState, addCustomerValues } = useContext(CoffeeContext)
 
+  const navigate = useNavigate()
+
   const method = useForm<FormCheckoutInput>({
     resolver: zodResolver(formCheckoutSchema),
     defaultValues: {
-      cep: '',
-      payment: '',
+      ...coffeesState.customer,
     },
   })
   const { handleSubmit } = method
@@ -59,11 +63,9 @@ export function Checkout() {
 
   function handleCheckoutForm(data: FormCheckoutInput) {
     addCustomerValues(coffeesState.coffees[0], data)
-  }
 
-  useEffect(() => {
-    console.log(coffeesState.customer)
-  }, [coffeesState])
+    navigate('/Success')
+  }
 
   return (
     <FormProvider {...method}>
@@ -75,7 +77,7 @@ export function Checkout() {
           </>
         ) : (
           <EmptyCart>
-            <span>Carrinho vazio...</span>
+            <span>Seu carrinho está vazio...</span>
             <ShoppingCart weight="fill" />
           </EmptyCart>
         )}

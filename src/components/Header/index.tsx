@@ -17,13 +17,21 @@ export function Header() {
         <img src={logoCoffeeDelivery} alt="logo coffee delivery" />
       </NavLink>
       <nav>
-        <NavLink to="/checkout" title="Checkout">
-          <MapPin size={22} weight="fill" /> <span>Porto Alegre, RS</span>
-        </NavLink>
-        <NavLink to="/checkout" title="Checkout">
-          <ShoppingCart size={22} weight="fill" />
-          {quantityOfItem >= 1 ? <p>{quantityOfItem}</p> : null}
-        </NavLink>
+        {coffeesState.customer.city !== '' ? (
+          <NavLink to="/checkout" title="Checkout">
+            <MapPin size={22} weight="fill" />{' '}
+            <span>
+              {coffeesState.customer.city}, {coffeesState.customer.uf}
+            </span>
+          </NavLink>
+        ) : null}
+
+        {quantityOfItem >= 1 ? (
+          <NavLink to="/checkout" title="Checkout">
+            <ShoppingCart size={22} weight="fill" />
+            <p>{quantityOfItem}</p>
+          </NavLink>
+        ) : null}
       </nav>
     </HeaderContainer>
   )

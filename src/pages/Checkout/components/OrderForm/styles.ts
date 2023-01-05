@@ -55,9 +55,9 @@ export const InputGroup = styled.div`
   row-gap: 1rem;
   grid-template-areas:
     'cep cep cep'
-    'rua rua rua'
-    'numero complemento complemento'
-    'bairro cidade uf';
+    'street street street'
+    'number complement complement'
+    'district city uf';
 
   width: 100%;
 
@@ -90,17 +90,17 @@ export const InputGroup = styled.div`
     grid-area: cep;
   }
 
-  label[for='rua'] {
-    grid-area: rua;
+  label[for='street'] {
+    grid-area: street;
     max-width: 35rem;
   }
 
-  label[for='numero'] {
-    grid-area: numero;
+  label[for='number'] {
+    grid-area: number;
   }
 
-  label[for='complemento'] {
-    grid-area: complemento;
+  label[for='complement'] {
+    grid-area: complement;
     max-width: 21.75rem;
     position: relative;
 
@@ -114,12 +114,12 @@ export const InputGroup = styled.div`
     }
   }
 
-  label[for='bairro'] {
-    grid-area: bairro;
+  label[for='district'] {
+    grid-area: district;
   }
 
-  label[for='cidade'] {
-    grid-area: cidade;
+  label[for='city'] {
+    grid-area: city;
     max-width: 17.25rem;
   }
 
@@ -132,6 +132,11 @@ export const InputGroup = styled.div`
 export const PaymentCard = styled(AddressCard)`
   min-height: 12.93rem;
   margin-top: 0.75rem;
+
+  span {
+    color: ${(props) => props.theme['yellow-dark']};
+    font-size: 0.75rem;
+  }
 `
 export const ButtonGroup = styled(RadioGroup.Root)`
   display: flex;

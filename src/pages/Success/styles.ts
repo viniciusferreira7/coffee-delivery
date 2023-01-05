@@ -10,7 +10,7 @@ export const SuccessContainer = styled.main`
   max-width: 70rem;
   width: 100%;
   margin: auto;
-  margin-top: 5rem;
+  margin-top: calc(5rem + 6.5rem);
 
   img {
     grid-area: img;

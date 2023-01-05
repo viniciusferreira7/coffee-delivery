@@ -5,7 +5,6 @@ import {
   CartInfoContainer,
   TotalItems,
 } from './styles'
-import { NavLink } from 'react-router-dom'
 import { CoffeeContext } from '../../../../contexts/CoffeeContext'
 import { CoffeeAdded } from './components/CoffeeAdded'
 
@@ -49,11 +48,9 @@ export function CartInfo() {
               <p>{convertNumberToReal(totalValueOfAllCoffee + 3.5)}</p>
             ) : null}
           </div>
-          {/* <NavLink to="/success" title="Success"> */}
           <ConfirmOrderButton type="submit" aria-label="confirmar">
             Confirmar pedido
           </ConfirmOrderButton>
-          {/* </NavLink> */}
         </TotalItems>
       </CardContainer>
     </CartInfoContainer>

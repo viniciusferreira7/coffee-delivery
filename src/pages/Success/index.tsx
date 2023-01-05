@@ -1,8 +1,13 @@
 import { Description, OrderInfo, SuccessContainer, Title } from './styles'
 import illustration from '../../assets/illustration.svg'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContext } from 'react'
+import { CoffeeContext } from '../../contexts/CoffeeContext'
 
 export function Success() {
+  const { coffeesState } = useContext(CoffeeContext)
+
+  const { street, number, district, city, uf, payment } = coffeesState.customer
   return (
     <SuccessContainer>
       <Title>
@@ -16,8 +21,7 @@ export function Success() {
               <MapPin size={14} weight="fill" />
             </div>
             <p>
-              Entrega em Rua João Daniel Martinelli, 102 Farrapos - Porto
-              Alegre, RS
+              Entrega em {street}, {number} {district} - {city}, {uf}
             </p>
           </Description>
           <Description color="yellow">
@@ -30,7 +34,7 @@ export function Success() {
             <div>
               <CurrencyDollar size={14} weight="fill" />
             </div>
-            <p>Pagamento na entrega Cartão de Crédito</p>
+            <p>Pagamento na entrega {payment}</p>
           </Description>
         </div>
       </OrderInfo>

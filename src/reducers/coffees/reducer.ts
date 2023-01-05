@@ -11,14 +11,13 @@ export interface Coffee {
   quantity: number
   added: boolean
 }
-
 export interface InputValues {
   cep: string
-  rua: string
-  numero: string
-  complemento: string
-  bairro: string
-  cidade: string
+  street: string
+  number: string
+  complement: string
+  district: string
+  city: string
   uf: string
   payment: string
 }

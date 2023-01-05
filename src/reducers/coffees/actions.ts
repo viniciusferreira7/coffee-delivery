@@ -9,11 +9,11 @@ export enum ActionTypes {
 
 const customer = {
   cep: '',
-  rua: '',
-  numero: '',
-  complemento: '',
-  bairro: '',
-  cidade: '',
+  street: '',
+  number: '',
+  complement: '',
+  district: '',
+  city: '',
   uf: '',
   payment: '',
 }

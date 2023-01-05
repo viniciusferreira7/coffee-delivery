@@ -56,47 +56,47 @@ export default function OrderForm() {
               render={({ message }) => <span>{message}</span>}
             />
           </label>
-          <label htmlFor="rua">
-            <input {...register('rua')} type="text" placeholder="Rua" />
+          <label htmlFor="street">
+            <input {...register('street')} type="text" placeholder="Rua" />
             <ErrorMessage
-              name="rua"
+              name="street"
               errors={errors}
               render={({ message }) => <span>{message}</span>}
             />
           </label>
-          <label htmlFor="numero">
-            <input {...register('numero')} type="text" placeholder="Numero" />
+          <label htmlFor="number">
+            <input {...register('number')} type="text" placeholder="Numero" />
             <ErrorMessage
-              name="numero"
+              name="number"
               errors={errors}
               render={({ message }) => <span>{message}</span>}
             />
           </label>
-          <label htmlFor="complemento">
+          <label htmlFor="complement">
             <span>Opcional</span>
             <input
-              {...register('complemento')}
+              {...register('complement')}
               type="text"
               placeholder="Complemento"
             />
             <ErrorMessage
-              name="complemento"
+              name="complement"
               errors={errors}
               render={({ message }) => <span>{message}</span>}
             />
           </label>
-          <label htmlFor="bairro">
-            <input {...register('bairro')} type="text" placeholder="Bairro" />
+          <label htmlFor="district">
+            <input {...register('district')} type="text" placeholder="Bairro" />
             <ErrorMessage
-              name="bairro"
+              name="district"
               errors={errors}
               render={({ message }) => <span>{message}</span>}
             />
           </label>
-          <label htmlFor="cidade">
-            <input {...register('cidade')} type="text" placeholder="Cidade" />
+          <label htmlFor="city">
+            <input {...register('city')} type="text" placeholder="Cidade" />
             <ErrorMessage
-              name="cidade"
+              name="city"
               errors={errors}
               render={({ message }) => <span>{message}</span>}
             />
@@ -141,6 +141,11 @@ export default function OrderForm() {
               </Button>
             </ButtonGroup>
           )}
+        />
+        <ErrorMessage
+          name="payment"
+          errors={errors}
+          render={({ message }) => <span>{message}</span>}
         />
       </PaymentCard>
     </OrderFormContainer>
