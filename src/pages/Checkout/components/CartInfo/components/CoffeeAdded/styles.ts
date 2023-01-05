@@ -5,7 +5,7 @@ export const CoffeeAddedContainer = styled.div`
   gap: 0.5rem;
   grid-template-areas:
     'img h4 h4 price'
-    'img counter button price';
+    'img button button price';
 
   padding-bottom: 1.5rem;
   border-bottom: 1px solid ${(props) => props.theme['base-button']};
@@ -25,7 +25,7 @@ export const CoffeeAddedContainer = styled.div`
   }
 
   div {
-    grid-area: counter;
+    grid-area: button;
   }
 
   p {
