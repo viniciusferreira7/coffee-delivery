@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useReducer } from 'react'
 import {
+  addCustomerValuesAction,
   addNewCoffeeAction,
   removeCoffeeAction,
 } from '../reducers/coffees/actions'
@@ -29,16 +30,18 @@ interface InputValues {
   bairro: string
   cidade: string
   uf: string
+  payment: string
 }
 
 interface CoffeeContextType {
   AllCoffeeData: CoffeeType[]
   coffeesState: {
     coffees: CoffeeType[]
-    form: InputValues
+    customer: InputValues
   }
   addNewCoffee: (newCoffee: CoffeeType) => void
   removeCoffee: (name: string) => void
+  addCustomerValues: (coffee: CoffeeType, customer: InputValues) => void
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType)
@@ -71,7 +74,7 @@ export function CoffeeContextProvider({
         added: true,
       },
     ],
-    form: {
+    customer: {
       cep: '',
       rua: '',
       numero: '',
@@ -79,6 +82,7 @@ export function CoffeeContextProvider({
       bairro: '',
       cidade: '',
       uf: '',
+      payment: '',
     },
   })
 
@@ -94,6 +98,10 @@ export function CoffeeContextProvider({
     }
   }
 
+  function addCustomerValues(coffee: CoffeeType, customer: InputValues) {
+    dispatch(addCustomerValuesAction(coffee, customer))
+  }
+
   return (
     <CoffeeContext.Provider
       value={{
@@ -101,6 +109,7 @@ export function CoffeeContextProvider({
         coffeesState,
         addNewCoffee,
         removeCoffee,
+        addCustomerValues,
       }}
     >
       {children}

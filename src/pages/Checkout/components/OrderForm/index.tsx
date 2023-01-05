@@ -119,23 +119,29 @@ export default function OrderForm() {
             O pagamento é feito na entrega. Escolha a forma que deseja pagar
           </p>
         </ArticleContainer>
-        <ButtonGroup>
-          <Button value="crédito">
-            <CreditCard size={16} weight="regular" />
+        <Controller
+          control={control}
+          name="payment"
+          render={({ field: { onChange, value } }) => (
+            <ButtonGroup onValueChange={onChange} value={value}>
+              <Button value="crédito">
+                <CreditCard size={16} weight="regular" />
 
-            <p>Cartão de crédito</p>
-          </Button>
-          <Button value="débito">
-            <Bank size={16} weight="regular" />
+                <p>Cartão de crédito</p>
+              </Button>
+              <Button value="débito">
+                <Bank size={16} weight="regular" />
 
-            <p>Cartão de debito</p>
-          </Button>
-          <Button value="dinheiro">
-            <Money size={16} weight="regular" />
+                <p>Cartão de debito</p>
+              </Button>
+              <Button value="dinheiro">
+                <Money size={16} weight="regular" />
 
-            <p>Dinheiro</p>
-          </Button>
-        </ButtonGroup>
+                <p>Dinheiro</p>
+              </Button>
+            </ButtonGroup>
+          )}
+        />
       </PaymentCard>
     </OrderFormContainer>
   )

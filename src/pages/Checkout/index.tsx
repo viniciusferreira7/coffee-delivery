@@ -34,23 +34,36 @@ const formCheckoutSchema = z.object({
       /RO|AC|AM|RR|PA|AP|TO|MA|PI|CE|RN|PB|PE|AL|SE|BA|MG|ES|RJ|SP|PR|SC|RS|MS|MT|GO|DF/g,
       { message: 'UF inválido' },
     ),
+  payment: z
+    .string({
+      required_error: 'Este campo é obrigatório',
+    })
+    .regex(/crédito|débito|dinheiro/i, { message: 'Opção inválida' }),
 })
 
 type FormCheckoutInput = z.infer<typeof formCheckoutSchema>
 
 export function Checkout() {
-  const { coffeesState } = useContext(CoffeeContext)
+  const { coffeesState, addCustomerValues } = useContext(CoffeeContext)
 
   const method = useForm<FormCheckoutInput>({
     resolver: zodResolver(formCheckoutSchema),
+    defaultValues: {
+      cep: '',
+      payment: '',
+    },
   })
   const { handleSubmit } = method
 
   const thereIsItemInCart = coffeesState.coffees.length >= 1
 
   function handleCheckoutForm(data: FormCheckoutInput) {
-    console.log(data)
+    addCustomerValues(coffeesState.coffees[0], data)
   }
+
+  useEffect(() => {
+    console.log(coffeesState.customer)
+  }, [coffeesState])
 
   return (
     <FormProvider {...method}>

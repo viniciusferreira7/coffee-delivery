@@ -12,7 +12,7 @@ export interface Coffee {
   added: boolean
 }
 
-interface InputValues {
+export interface InputValues {
   cep: string
   rua: string
   numero: string
@@ -20,17 +20,19 @@ interface InputValues {
   bairro: string
   cidade: string
   uf: string
+  payment: string
 }
 
 interface CoffeesState {
   coffees: Coffee[]
-  form: InputValues
+  customer: InputValues
 }
 
 interface Action {
   type: ActionTypes
   payload: {
     coffee: Coffee
+    customer: InputValues
   }
 }
 
@@ -45,6 +47,12 @@ export function coffeesReducer(state: CoffeesState, action: Action) {
         coffees: state.coffees.filter(
           (coffee) => coffee !== action.payload.coffee,
         ),
+      }
+
+    case ActionTypes.ADD_CUSTOMER_VALUES:
+      return {
+        ...state,
+        customer: { ...action.payload.customer },
       }
 
     default:
