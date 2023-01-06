@@ -6,6 +6,7 @@
 - SPA
 - Validação de formulário
 
+<img src='src/assets/coffeedelivery.gif' width='1200'>
 
 <hr>
 
