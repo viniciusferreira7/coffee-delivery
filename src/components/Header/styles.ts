@@ -89,5 +89,9 @@ export const HeaderContainer = styled.header`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding: 0.5rem 10.5%;
+
+    nav {
+      margin-top: 1rem;
+    }
   }
 `

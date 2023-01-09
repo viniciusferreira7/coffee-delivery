@@ -22,6 +22,7 @@ export const SuccessContainer = styled.main`
       'header '
       'orderInfo';
     margin-top: 2rem;
+    padding: 0 1%;
 
     img {
       display: none;
